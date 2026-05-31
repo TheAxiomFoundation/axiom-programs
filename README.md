@@ -33,7 +33,16 @@ axiom-programs/
   us-ca/
     snap/
       fy-2026.yaml
+  us-al/
+    snap/
+      fy-2026.yaml
+  us-ma/
+    snap/
+      fy-2026.yaml
   us-ny/
+    snap/
+      fy-2026.yaml
+  us-tn/
     snap/
       fy-2026.yaml
   uk/
@@ -74,7 +83,11 @@ scope:
 
 ## Status
 
-Bootstrap. The composer (`axiom-compose#1`) is still draft; specs landed here today document the intended composition but cannot yet be compiled end-to-end. Once the composer graduates, these specs become the canonical inputs.
+Bootstrap, but the active FY 2026 SNAP specs are real compose inputs. The
+current CA, NY, MA, AL, and TN SNAP specs can be composed with `axiom-compose`
+and compiled with `axiom-rules-engine` into end-to-end `snap_eligible` and
+`snap_benefit` calculators. Some state specs still carry known policy coverage
+gaps, but they are executable program assemblies, not placeholders.
 
 ## Migration backlog
 
