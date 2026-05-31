@@ -157,5 +157,5 @@ transformations:
     unit: USD
     source: axiom-programs/us-ny/snap/fy-2026 benefit composition
     condition: snap_eligible
-    when_true: snap_allotment
+    when_true: snap_monthly_allotment
     when_false: 0

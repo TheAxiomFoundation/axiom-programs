@@ -36,6 +36,7 @@ scope:
     - regulations/7-cfr/273/6
     - regulations/7-cfr/273/7
     - regulations/7-cfr/273/8
+    - regulations/7-cfr/273/9/d/6/iii
     - regulations/7-cfr/273/10
     - statutes/7/2012/j
     - statutes/7/2014/a
@@ -88,6 +89,7 @@ scope:
     - regulations/mpp/63-410/1
     - regulations/mpp/63-410/6
     - regulations/mpp/63-411/1
+    - policies/cdss/snap/standard-utility-allowance
 
 transformations:
   # 1. snap_member_eligible — Person-scoped AND of federal eligibility tests.
@@ -179,6 +181,7 @@ transformations:
     source: axiom-programs/us-ca/snap/fy-2026 shelter-cost composition
     terms:
       - household_shelter_costs_incurred
+      - snap_standard_utility_allowance
 
   - pattern: sum_terms
     name: snap_excess_shelter_deduction
