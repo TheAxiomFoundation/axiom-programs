@@ -25,6 +25,9 @@ axiom-programs/
   us/
     fiit/
       fy-2026.yaml
+    payroll/
+      oasdi-wage-tax/
+        fy-2026.yaml
     snap/
       fy-2026.yaml
   us-co/
@@ -84,10 +87,12 @@ scope:
 ## Status
 
 Bootstrap, but the active FY 2026 SNAP specs are real compose inputs. The
-current CA, NY, MA, AL, and TN SNAP specs can be composed with `axiom-compose`
-and compiled with `axiom-rules-engine` into end-to-end `snap_eligible` and
-`snap_benefit` calculators. Some state specs still carry known policy coverage
-gaps, but they are executable program assemblies, not placeholders.
+current AL, CA, CO, MA, NC, NY, SC, and TN SNAP specs can be composed with
+`axiom-compose` and compiled with `axiom-rules-engine` into end-to-end
+`snap_eligible` and `snap_benefit` calculators. The US payroll OASDI wage-tax
+spec composes the employee Social Security tax rule from `rulespec-us`. Some
+state specs still carry known policy coverage gaps, but they are executable
+program assemblies, not placeholders.
 
 ## Migration backlog
 
