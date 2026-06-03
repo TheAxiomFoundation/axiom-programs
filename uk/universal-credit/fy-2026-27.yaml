@@ -1,0 +1,21 @@
+# UK Universal Credit -- 2026-27
+#
+# First-pass program package for Universal Credit Regulation 36 component
+# amounts. This is not the full Universal Credit award calculation; full award
+# composition still needs income, capital, housing-cost, conditionality,
+# sanction, and deduction surfaces.
+
+program: uk/universal-credit
+period: 2026-04
+
+outputs:
+  - standard_allowance_amount
+  - child_element_amount
+  - disabled_child_additional_amount
+  - lcwra_element_amount
+  - carer_element
+  - childcare_costs_element_maximum_amount
+
+scope:
+  uk:
+    - regulations/uksi/2013/376/36
