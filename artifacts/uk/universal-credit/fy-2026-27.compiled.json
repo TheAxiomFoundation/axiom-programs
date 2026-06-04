@@ -3585,15 +3585,17 @@
         "source_url": null,
         "semantics": "scalar",
         "expr": {
-          "kind": "sum_related",
-          "relation": "adult_of_benefit_unit",
-          "current_slot": 1,
-          "related_slot": 0,
-          "value": {
-            "kind": "input",
-            "name": "housing_cost_element_under_shared_ownership"
-          },
-          "where": null
+          "kind": "add",
+          "items": [
+            {
+              "kind": "derived",
+              "name": "amount_calculated_under_schedule_4"
+            },
+            {
+              "kind": "derived",
+              "name": "amount_calculated_under_schedule_5"
+            }
+          ]
         }
       },
       {
@@ -3725,7 +3727,6 @@
   "metadata": {
     "evaluation_order": [
       "amount_included_under_section_10_responsibility_for_children_and_young_persons",
-      "amount_included_under_section_11_housing_costs",
       "both_joint_claimants_carer_elements_included",
       "carer_element",
       "child_element_amount",
@@ -3759,6 +3760,7 @@
       "total_housing_cost_contributions_to_be_deducted_in_renters_case",
       "renters_housing_costs_element_calculated_under_this_part",
       "amount_calculated_under_schedule_4",
+      "amount_included_under_section_11_housing_costs",
       "housing_cost_element_under_shared_ownership",
       "schedule_amount_after_housing_cost_contributions",
       "unearned_income_for_deduction",

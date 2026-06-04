@@ -77,7 +77,9 @@ rules:
   source: axiom-programs/uk/universal-credit bridge from WRA 2012 s.11 to UC Regs 2013 reg. 26
   versions:
   - effective_from: '2026-04-01'
-    formula: sum(adult_of_benefit_unit.housing_cost_element_under_shared_ownership)
+    formula: 'amount_calculated_under_schedule_4
+
+      + amount_calculated_under_schedule_5'
   unit: GBP
 - name: universal_credit_award_carer_element_included_amount
   kind: derived
