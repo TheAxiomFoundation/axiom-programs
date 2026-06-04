@@ -5,8 +5,8 @@
 # Universal Credit Regulations 2013 component, housing, childcare, and income-
 # deduction provisions. Some upstream source areas remain modeled as direct
 # runtime facts where RuleSpec has not yet encoded the full lower-level
-# administrative path, such as non-shared-ownership housing schedules,
-# sanctions, and detailed capital/resource entitlement gates.
+# administrative path, such as sanctions and detailed capital/resource
+# entitlement gates.
 
 program: uk/universal-credit
 period: 2026-04
@@ -36,6 +36,8 @@ scope:
     - regulations/uksi/2013/376/29
     - regulations/uksi/2013/376/34
     - regulations/uksi/2013/376/36
+    - regulations/uksi/2013/376/schedule/4/paragraph/22
+    - regulations/uksi/2013/376/schedule/5/paragraph/9
 
 transformations:
   - pattern: data_relation
@@ -70,6 +72,28 @@ transformations:
     formula: |-
       sum(child_of_benefit_unit.responsible_child_element_included_amount)
       + sum(child_of_benefit_unit.disabled_child_additional_amount)
+
+  - pattern: derived_formula
+    name: amount_calculated_under_schedule_4
+    effective_from: '2026-04-01'
+    entity: Family
+    dtype: Money
+    period: Month
+    unit: GBP
+    source: axiom-programs/uk/universal-credit bridge from UC Regs 2013 reg. 26 to Schedule 4 paragraph 22
+    formula: |-
+      renters_housing_costs_element_calculated_under_this_part
+
+  - pattern: derived_formula
+    name: amount_calculated_under_schedule_5
+    effective_from: '2026-04-01'
+    entity: Family
+    dtype: Money
+    period: Month
+    unit: GBP
+    source: axiom-programs/uk/universal-credit bridge from UC Regs 2013 reg. 26 to Schedule 5 paragraph 9
+    formula: |-
+      owner_occupier_housing_costs_element_amount
 
   - pattern: derived_formula
     name: amount_included_under_section_11_housing_costs

@@ -20,9 +20,9 @@
   "composed_rulespec": "artifacts/uk/universal-credit/fy-2026-27.rulespec.yaml",
   "compiled_artifact": "artifacts/uk/universal-credit/fy-2026-27.compiled.json",
   "artifact_counts": {
-    "derived": 39,
-    "parameters": 19,
-    "relations": 2
+    "derived": 51,
+    "parameters": 25,
+    "relations": 3
   },
   "tooling": {
     "axiom_programs_commit": "d8611ab1bec62207dec76a088763626998d99304",
@@ -31,12 +31,12 @@
     "axiom_rules_engine_commit": "8ad01030cc819e20fec9b4f1a85bb82ddd70810e"
   },
   "sha256": {
-    "fy-2026-27.rulespec.yaml": "870bf0a3982c2f72d7ca7e984943bc3d8583d032f9b7279b78c9badf440f8db2",
-    "fy-2026-27.compiled.json": "a6c49b6ada66f581fe99044a2a72cee64782016780ee87f22fcb9763829d9eb7"
+    "fy-2026-27.rulespec.yaml": "d1e50a16ba3abde05707ed7039c5b5fe9dc43d7efc20be63dd79cca0baa1bffa",
+    "fy-2026-27.compiled.json": "6ea48cc3c15b3fea449df002d1f12736db52a65bd9e57bf60c164511e95b5dd5"
   },
   "commands": {
-    "compose": "axiom-compose uk/universal-credit/fy-2026-27.yaml --rulespec-root /path/to/rulespec-uk-official -o artifacts/uk/universal-credit/fy-2026-27.rulespec.yaml",
-    "compile": "AXIOM_RULESPEC_REPO_ROOTS=/path/to/workspace:/path/to/rulespec-uk-official axiom-rules-engine compile --program artifacts/uk/universal-credit/fy-2026-27.rulespec.yaml --output artifacts/uk/universal-credit/fy-2026-27.compiled.json"
+    "compose": "axiom-compose uk/universal-credit/fy-2026-27.yaml --rulespec-root /path/to/rulespec-uk -o artifacts/uk/universal-credit/fy-2026-27.rulespec.yaml",
+    "compile": "AXIOM_RULESPEC_REPO_ROOTS=/path/to/workspace axiom-rules-engine compile --program artifacts/uk/universal-credit/fy-2026-27.rulespec.yaml --output artifacts/uk/universal-credit/fy-2026-27.compiled.json"
   },
   "notes": [
     "The source program spec is not directly executable by axiom-rules-engine.",

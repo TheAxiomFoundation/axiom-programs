@@ -43,6 +43,10 @@
       {
         "name": "child_of_benefit_unit",
         "arity": 2
+      },
+      {
+        "name": "uk:regulations/uksi/2013/376/schedule/5/paragraph/13#relation.owner_occupier_service_charge_payments",
+        "arity": 2
       }
     ],
     "parameters": [
@@ -364,6 +368,108 @@
               "0": {
                 "kind": "decimal",
                 "value": "0.85"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "uk:regulations/uksi/2013/376/schedule/4/paragraph/14#housing_cost_contribution_amount",
+        "name": "housing_cost_contribution_amount",
+        "unit": "GBP",
+        "indexed_by": null,
+        "versions": [
+          {
+            "effective_from": "0001-01-01",
+            "values": {
+              "0": {
+                "kind": "decimal",
+                "value": "96.55"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "uk:regulations/uksi/2013/376/schedule/5/paragraph/13#months_in_service_charge_annual_equivalent_period",
+        "name": "months_in_service_charge_annual_equivalent_period",
+        "unit": null,
+        "indexed_by": null,
+        "versions": [
+          {
+            "effective_from": "0001-01-01",
+            "values": {
+              "0": {
+                "kind": "integer",
+                "value": 12
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "uk:regulations/uksi/2013/376/schedule/5/paragraph/13#weekly_service_charge_payments_in_12_month_period",
+        "name": "weekly_service_charge_payments_in_12_month_period",
+        "unit": null,
+        "indexed_by": null,
+        "versions": [
+          {
+            "effective_from": "0001-01-01",
+            "values": {
+              "0": {
+                "kind": "integer",
+                "value": 52
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "uk:regulations/uksi/2013/376/schedule/5/paragraph/13#two_weekly_service_charge_payments_in_12_month_period",
+        "name": "two_weekly_service_charge_payments_in_12_month_period",
+        "unit": null,
+        "indexed_by": null,
+        "versions": [
+          {
+            "effective_from": "0001-01-01",
+            "values": {
+              "0": {
+                "kind": "integer",
+                "value": 26
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "uk:regulations/uksi/2013/376/schedule/5/paragraph/13#four_weekly_service_charge_payments_in_12_month_period",
+        "name": "four_weekly_service_charge_payments_in_12_month_period",
+        "unit": null,
+        "indexed_by": null,
+        "versions": [
+          {
+            "effective_from": "0001-01-01",
+            "values": {
+              "0": {
+                "kind": "integer",
+                "value": 13
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "uk:regulations/uksi/2013/376/schedule/5/paragraph/13#three_monthly_service_charge_payments_in_12_month_period",
+        "name": "three_monthly_service_charge_payments_in_12_month_period",
+        "unit": null,
+        "indexed_by": null,
+        "versions": [
+          {
+            "effective_from": "0001-01-01",
+            "values": {
+              "0": {
+                "kind": "integer",
+                "value": 4
               }
             }
           }
@@ -1710,7 +1816,7 @@
         "dtype": "judgment",
         "unit": null,
         "period": "Month",
-        "source": "regulation 26(2)",
+        "source": "Universal Credit Regulations 2013, regulation 26(2)",
         "source_url": null,
         "semantics": "judgment",
         "expr": {
@@ -1756,7 +1862,7 @@
         "dtype": "judgment",
         "unit": null,
         "period": "Month",
-        "source": "regulation 26(3)",
+        "source": "Universal Credit Regulations 2013, regulation 26(3)",
         "source_url": null,
         "semantics": "judgment",
         "expr": {
@@ -1802,7 +1908,7 @@
         "dtype": "judgment",
         "unit": null,
         "period": "Month",
-        "source": "regulation 26(6)",
+        "source": "Universal Credit Regulations 2013, regulation 26(6)",
         "source_url": null,
         "semantics": "judgment",
         "expr": {
@@ -1848,7 +1954,7 @@
         "dtype": "decimal",
         "unit": "GBP",
         "period": "Month",
-        "source": "regulation 26(4) and 26(5)",
+        "source": "Universal Credit Regulations 2013, regulation 26(4)",
         "source_url": null,
         "semantics": "scalar",
         "expr": {
@@ -1861,30 +1967,42 @@
                 "items": [
                   {
                     "kind": "derived",
-                    "name": "shared_ownership_tenancy"
+                    "name": "schedule_4_has_effect_for_claimant"
                   },
                   {
                     "kind": "derived",
-                    "name": "schedule_4_has_effect_for_claimant"
+                    "name": "schedule_5_has_effect_for_claimant"
                   }
                 ]
               },
               {
                 "kind": "derived",
-                "name": "schedule_5_has_effect_for_claimant"
+                "name": "shared_ownership_tenancy"
               }
             ]
           },
           "then_expr": {
-            "kind": "add",
+            "kind": "max",
             "items": [
               {
-                "kind": "input",
-                "name": "amount_calculated_under_schedule_4"
+                "kind": "literal",
+                "value": {
+                  "kind": "decimal",
+                  "value": "0"
+                }
               },
               {
-                "kind": "input",
-                "name": "amount_calculated_under_schedule_5"
+                "kind": "add",
+                "items": [
+                  {
+                    "kind": "derived",
+                    "name": "amount_calculated_under_schedule_4"
+                  },
+                  {
+                    "kind": "derived",
+                    "name": "amount_calculated_under_schedule_5"
+                  }
+                ]
               }
             ]
           },
@@ -1904,7 +2022,7 @@
         "dtype": "judgment",
         "unit": null,
         "period": "Month",
-        "source": "regulation 26(5)",
+        "source": "Universal Credit Regulations 2013, regulation 26(5)",
         "source_url": null,
         "semantics": "judgment",
         "expr": {
@@ -1918,17 +2036,17 @@
                   "items": [
                     {
                       "kind": "derived",
-                      "name": "shared_ownership_tenancy"
+                      "name": "schedule_4_has_effect_for_claimant"
                     },
                     {
                       "kind": "derived",
-                      "name": "schedule_4_has_effect_for_claimant"
+                      "name": "schedule_5_has_effect_for_claimant"
                     }
                   ]
                 },
                 {
                   "kind": "derived",
-                  "name": "schedule_5_has_effect_for_claimant"
+                  "name": "shared_ownership_tenancy"
                 }
               ]
             },
@@ -2589,6 +2707,796 @@
         }
       },
       {
+        "id": "uk:regulations/uksi/2013/376/schedule/4/paragraph/13#housing_cost_contribution_required_for_non_dependant",
+        "name": "housing_cost_contribution_required_for_non_dependant",
+        "entity": "Person",
+        "dtype": "judgment",
+        "unit": null,
+        "period": "Month",
+        "source": "Schedule 4 paragraph 13(1)-(3)",
+        "source_url": null,
+        "semantics": "judgment",
+        "expr": {
+          "kind": "and",
+          "items": [
+            {
+              "kind": "and",
+              "items": [
+                {
+                  "kind": "and",
+                  "items": [
+                    {
+                      "kind": "and",
+                      "items": [
+                        {
+                          "kind": "comparison",
+                          "left": {
+                            "kind": "input",
+                            "name": "calculation_is_under_part_4_or_5_of_schedule"
+                          },
+                          "op": "eq",
+                          "right": {
+                            "kind": "literal",
+                            "value": {
+                              "kind": "bool",
+                              "value": true
+                            }
+                          }
+                        },
+                        {
+                          "kind": "comparison",
+                          "left": {
+                            "kind": "input",
+                            "name": "person_is_non_dependant"
+                          },
+                          "op": "eq",
+                          "right": {
+                            "kind": "literal",
+                            "value": {
+                              "kind": "bool",
+                              "value": true
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "comparison",
+                      "left": {
+                        "kind": "input",
+                        "name": "person_is_member_of_renters_extended_benefit_unit"
+                      },
+                      "op": "eq",
+                      "right": {
+                        "kind": "literal",
+                        "value": {
+                          "kind": "bool",
+                          "value": true
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "kind": "not",
+                  "item": {
+                    "kind": "comparison",
+                    "left": {
+                      "kind": "input",
+                      "name": "paragraph_15_displaces_housing_cost_contribution_deduction"
+                    },
+                    "op": "eq",
+                    "right": {
+                      "kind": "literal",
+                      "value": {
+                        "kind": "bool",
+                        "value": true
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "not",
+              "item": {
+                "kind": "comparison",
+                "left": {
+                  "kind": "input",
+                  "name": "paragraph_16_displaces_housing_cost_contribution_deduction"
+                },
+                "op": "eq",
+                "right": {
+                  "kind": "literal",
+                  "value": {
+                    "kind": "bool",
+                    "value": true
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "id": "uk:regulations/uksi/2013/376/schedule/4/paragraph/14#housing_cost_contribution_amount_to_be_deducted_for_non_dependant",
+        "name": "housing_cost_contribution_amount_to_be_deducted_for_non_dependant",
+        "entity": "Person",
+        "dtype": "decimal",
+        "unit": "GBP",
+        "period": "Month",
+        "source": "Schedule 4 paragraph 14(1), read with paragraph 13",
+        "source_url": null,
+        "semantics": "scalar",
+        "expr": {
+          "kind": "if",
+          "condition": {
+            "kind": "derived",
+            "name": "housing_cost_contribution_required_for_non_dependant"
+          },
+          "then_expr": {
+            "kind": "parameter_lookup",
+            "parameter": "housing_cost_contribution_amount",
+            "index": {
+              "kind": "literal",
+              "value": {
+                "kind": "integer",
+                "value": 0
+              }
+            }
+          },
+          "else_expr": {
+            "kind": "literal",
+            "value": {
+              "kind": "decimal",
+              "value": "0"
+            }
+          }
+        }
+      },
+      {
+        "id": "uk:regulations/uksi/2013/376/schedule/4/paragraph/14#total_housing_cost_contributions_to_be_deducted_in_renters_case",
+        "name": "total_housing_cost_contributions_to_be_deducted_in_renters_case",
+        "entity": "Family",
+        "dtype": "decimal",
+        "unit": "GBP",
+        "period": "Month",
+        "source": "Schedule 4 paragraph 14(1), (3)",
+        "source_url": null,
+        "semantics": "scalar",
+        "expr": {
+          "kind": "mul",
+          "left": {
+            "kind": "input",
+            "name": "housing_cost_contribution_count_required_under_paragraph_13_in_renters_case"
+          },
+          "right": {
+            "kind": "parameter_lookup",
+            "parameter": "housing_cost_contribution_amount",
+            "index": {
+              "kind": "literal",
+              "value": {
+                "kind": "integer",
+                "value": 0
+              }
+            }
+          }
+        }
+      },
+      {
+        "id": "uk:regulations/uksi/2013/376/schedule/4/paragraph/14#schedule_amount_after_housing_cost_contributions",
+        "name": "schedule_amount_after_housing_cost_contributions",
+        "entity": "Family",
+        "dtype": "decimal",
+        "unit": "GBP",
+        "period": "Month",
+        "source": "Schedule 4 paragraph 14(2)-(3)",
+        "source_url": null,
+        "semantics": "scalar",
+        "expr": {
+          "kind": "max",
+          "items": [
+            {
+              "kind": "literal",
+              "value": {
+                "kind": "decimal",
+                "value": "0"
+              }
+            },
+            {
+              "kind": "sub",
+              "left": {
+                "kind": "input",
+                "name": "amount_resulting_from_all_other_steps_in_parts_4_and_5_calculation"
+              },
+              "right": {
+                "kind": "derived",
+                "name": "total_housing_cost_contributions_to_be_deducted_in_renters_case"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "id": "uk:regulations/uksi/2013/376/schedule/4/paragraph/22#renters_lower_rent_amount",
+        "name": "renters_lower_rent_amount",
+        "entity": "Family",
+        "dtype": "decimal",
+        "unit": "GBP",
+        "period": "Month",
+        "source": "Schedule 4 paragraph 22, step 1",
+        "source_url": null,
+        "semantics": "scalar",
+        "expr": {
+          "kind": "min",
+          "items": [
+            {
+              "kind": "input",
+              "name": "renters_core_rent"
+            },
+            {
+              "kind": "input",
+              "name": "renters_cap_rent"
+            }
+          ]
+        }
+      },
+      {
+        "id": "uk:regulations/uksi/2013/376/schedule/4/paragraph/22#renters_housing_costs_element_calculated_under_this_part",
+        "name": "renters_housing_costs_element_calculated_under_this_part",
+        "entity": "Family",
+        "dtype": "decimal",
+        "unit": "GBP",
+        "period": "Month",
+        "source": "Schedule 4 paragraph 22, steps 1 to 3",
+        "source_url": null,
+        "semantics": "scalar",
+        "expr": {
+          "kind": "max",
+          "items": [
+            {
+              "kind": "literal",
+              "value": {
+                "kind": "decimal",
+                "value": "0"
+              }
+            },
+            {
+              "kind": "sub",
+              "left": {
+                "kind": "derived",
+                "name": "renters_lower_rent_amount"
+              },
+              "right": {
+                "kind": "derived",
+                "name": "total_housing_cost_contributions_to_be_deducted_in_renters_case"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "id": "uk:regulations/uksi/2013/376/schedule/5/paragraph/13#service_charge_payment_count_for_free_period_arrangement",
+        "name": "service_charge_payment_count_for_free_period_arrangement",
+        "entity": "Payment",
+        "dtype": "decimal",
+        "unit": null,
+        "period": "Month",
+        "source": "Schedule 5 paragraph 13(4)-(4A)",
+        "source_url": null,
+        "semantics": "scalar",
+        "expr": {
+          "kind": "if",
+          "condition": {
+            "kind": "comparison",
+            "left": {
+              "kind": "input",
+              "name": "service_charge_payment_period_is_week"
+            },
+            "op": "eq",
+            "right": {
+              "kind": "literal",
+              "value": {
+                "kind": "bool",
+                "value": true
+              }
+            }
+          },
+          "then_expr": {
+            "kind": "sub",
+            "left": {
+              "kind": "parameter_lookup",
+              "parameter": "weekly_service_charge_payments_in_12_month_period",
+              "index": {
+                "kind": "literal",
+                "value": {
+                  "kind": "integer",
+                  "value": 0
+                }
+              }
+            },
+            "right": {
+              "kind": "input",
+              "name": "service_charge_free_periods_in_12_month_period"
+            }
+          },
+          "else_expr": {
+            "kind": "if",
+            "condition": {
+              "kind": "comparison",
+              "left": {
+                "kind": "input",
+                "name": "service_charge_payment_period_is_two_weeks"
+              },
+              "op": "eq",
+              "right": {
+                "kind": "literal",
+                "value": {
+                  "kind": "bool",
+                  "value": true
+                }
+              }
+            },
+            "then_expr": {
+              "kind": "sub",
+              "left": {
+                "kind": "parameter_lookup",
+                "parameter": "two_weekly_service_charge_payments_in_12_month_period",
+                "index": {
+                  "kind": "literal",
+                  "value": {
+                    "kind": "integer",
+                    "value": 0
+                  }
+                }
+              },
+              "right": {
+                "kind": "input",
+                "name": "service_charge_free_periods_in_12_month_period"
+              }
+            },
+            "else_expr": {
+              "kind": "if",
+              "condition": {
+                "kind": "comparison",
+                "left": {
+                  "kind": "input",
+                  "name": "service_charge_payment_period_is_four_weeks"
+                },
+                "op": "eq",
+                "right": {
+                  "kind": "literal",
+                  "value": {
+                    "kind": "bool",
+                    "value": true
+                  }
+                }
+              },
+              "then_expr": {
+                "kind": "sub",
+                "left": {
+                  "kind": "parameter_lookup",
+                  "parameter": "four_weekly_service_charge_payments_in_12_month_period",
+                  "index": {
+                    "kind": "literal",
+                    "value": {
+                      "kind": "integer",
+                      "value": 0
+                    }
+                  }
+                },
+                "right": {
+                  "kind": "input",
+                  "name": "service_charge_free_periods_in_12_month_period"
+                }
+              },
+              "else_expr": {
+                "kind": "input",
+                "name": "total_service_charge_payments_liable_in_12_month_period"
+              }
+            }
+          }
+        }
+      },
+      {
+        "id": "uk:regulations/uksi/2013/376/schedule/5/paragraph/13#service_charge_payment_monthly_equivalent",
+        "name": "service_charge_payment_monthly_equivalent",
+        "entity": "Payment",
+        "dtype": "decimal",
+        "unit": "GBP",
+        "period": "Month",
+        "source": "Schedule 5 paragraph 13(2)-(4A)",
+        "source_url": null,
+        "semantics": "scalar",
+        "expr": {
+          "kind": "if",
+          "condition": {
+            "kind": "not",
+            "item": {
+              "kind": "comparison",
+              "left": {
+                "kind": "input",
+                "name": "payment_is_relevant_service_charge_payment_taken_into_account_under_paragraph_8"
+              },
+              "op": "eq",
+              "right": {
+                "kind": "literal",
+                "value": {
+                  "kind": "bool",
+                  "value": true
+                }
+              }
+            }
+          },
+          "then_expr": {
+            "kind": "literal",
+            "value": {
+              "kind": "decimal",
+              "value": "0"
+            }
+          },
+          "else_expr": {
+            "kind": "if",
+            "condition": {
+              "kind": "comparison",
+              "left": {
+                "kind": "input",
+                "name": "service_charge_payment_period_is_month"
+              },
+              "op": "eq",
+              "right": {
+                "kind": "literal",
+                "value": {
+                  "kind": "bool",
+                  "value": true
+                }
+              }
+            },
+            "then_expr": {
+              "kind": "input",
+              "name": "service_charge_payment_amount"
+            },
+            "else_expr": {
+              "kind": "if",
+              "condition": {
+                "kind": "comparison",
+                "left": {
+                  "kind": "input",
+                  "name": "service_charge_free_period_arrangements_apply_to_payment"
+                },
+                "op": "eq",
+                "right": {
+                  "kind": "literal",
+                  "value": {
+                    "kind": "bool",
+                    "value": true
+                  }
+                }
+              },
+              "then_expr": {
+                "kind": "div",
+                "left": {
+                  "kind": "mul",
+                  "left": {
+                    "kind": "input",
+                    "name": "service_charge_payment_amount"
+                  },
+                  "right": {
+                    "kind": "derived",
+                    "name": "service_charge_payment_count_for_free_period_arrangement"
+                  }
+                },
+                "right": {
+                  "kind": "parameter_lookup",
+                  "parameter": "months_in_service_charge_annual_equivalent_period",
+                  "index": {
+                    "kind": "literal",
+                    "value": {
+                      "kind": "integer",
+                      "value": 0
+                    }
+                  }
+                }
+              },
+              "else_expr": {
+                "kind": "if",
+                "condition": {
+                  "kind": "comparison",
+                  "left": {
+                    "kind": "input",
+                    "name": "service_charge_payment_period_is_week"
+                  },
+                  "op": "eq",
+                  "right": {
+                    "kind": "literal",
+                    "value": {
+                      "kind": "bool",
+                      "value": true
+                    }
+                  }
+                },
+                "then_expr": {
+                  "kind": "div",
+                  "left": {
+                    "kind": "mul",
+                    "left": {
+                      "kind": "input",
+                      "name": "service_charge_payment_amount"
+                    },
+                    "right": {
+                      "kind": "parameter_lookup",
+                      "parameter": "weekly_service_charge_payments_in_12_month_period",
+                      "index": {
+                        "kind": "literal",
+                        "value": {
+                          "kind": "integer",
+                          "value": 0
+                        }
+                      }
+                    }
+                  },
+                  "right": {
+                    "kind": "parameter_lookup",
+                    "parameter": "months_in_service_charge_annual_equivalent_period",
+                    "index": {
+                      "kind": "literal",
+                      "value": {
+                        "kind": "integer",
+                        "value": 0
+                      }
+                    }
+                  }
+                },
+                "else_expr": {
+                  "kind": "if",
+                  "condition": {
+                    "kind": "comparison",
+                    "left": {
+                      "kind": "input",
+                      "name": "service_charge_payment_period_is_two_weeks"
+                    },
+                    "op": "eq",
+                    "right": {
+                      "kind": "literal",
+                      "value": {
+                        "kind": "bool",
+                        "value": true
+                      }
+                    }
+                  },
+                  "then_expr": {
+                    "kind": "div",
+                    "left": {
+                      "kind": "mul",
+                      "left": {
+                        "kind": "input",
+                        "name": "service_charge_payment_amount"
+                      },
+                      "right": {
+                        "kind": "parameter_lookup",
+                        "parameter": "two_weekly_service_charge_payments_in_12_month_period",
+                        "index": {
+                          "kind": "literal",
+                          "value": {
+                            "kind": "integer",
+                            "value": 0
+                          }
+                        }
+                      }
+                    },
+                    "right": {
+                      "kind": "parameter_lookup",
+                      "parameter": "months_in_service_charge_annual_equivalent_period",
+                      "index": {
+                        "kind": "literal",
+                        "value": {
+                          "kind": "integer",
+                          "value": 0
+                        }
+                      }
+                    }
+                  },
+                  "else_expr": {
+                    "kind": "if",
+                    "condition": {
+                      "kind": "comparison",
+                      "left": {
+                        "kind": "input",
+                        "name": "service_charge_payment_period_is_four_weeks"
+                      },
+                      "op": "eq",
+                      "right": {
+                        "kind": "literal",
+                        "value": {
+                          "kind": "bool",
+                          "value": true
+                        }
+                      }
+                    },
+                    "then_expr": {
+                      "kind": "div",
+                      "left": {
+                        "kind": "mul",
+                        "left": {
+                          "kind": "input",
+                          "name": "service_charge_payment_amount"
+                        },
+                        "right": {
+                          "kind": "parameter_lookup",
+                          "parameter": "four_weekly_service_charge_payments_in_12_month_period",
+                          "index": {
+                            "kind": "literal",
+                            "value": {
+                              "kind": "integer",
+                              "value": 0
+                            }
+                          }
+                        }
+                      },
+                      "right": {
+                        "kind": "parameter_lookup",
+                        "parameter": "months_in_service_charge_annual_equivalent_period",
+                        "index": {
+                          "kind": "literal",
+                          "value": {
+                            "kind": "integer",
+                            "value": 0
+                          }
+                        }
+                      }
+                    },
+                    "else_expr": {
+                      "kind": "if",
+                      "condition": {
+                        "kind": "comparison",
+                        "left": {
+                          "kind": "input",
+                          "name": "service_charge_payment_period_is_three_months"
+                        },
+                        "op": "eq",
+                        "right": {
+                          "kind": "literal",
+                          "value": {
+                            "kind": "bool",
+                            "value": true
+                          }
+                        }
+                      },
+                      "then_expr": {
+                        "kind": "div",
+                        "left": {
+                          "kind": "mul",
+                          "left": {
+                            "kind": "input",
+                            "name": "service_charge_payment_amount"
+                          },
+                          "right": {
+                            "kind": "parameter_lookup",
+                            "parameter": "three_monthly_service_charge_payments_in_12_month_period",
+                            "index": {
+                              "kind": "literal",
+                              "value": {
+                                "kind": "integer",
+                                "value": 0
+                              }
+                            }
+                          }
+                        },
+                        "right": {
+                          "kind": "parameter_lookup",
+                          "parameter": "months_in_service_charge_annual_equivalent_period",
+                          "index": {
+                            "kind": "literal",
+                            "value": {
+                              "kind": "integer",
+                              "value": 0
+                            }
+                          }
+                        }
+                      },
+                      "else_expr": {
+                        "kind": "if",
+                        "condition": {
+                          "kind": "comparison",
+                          "left": {
+                            "kind": "input",
+                            "name": "service_charge_payment_period_is_annual"
+                          },
+                          "op": "eq",
+                          "right": {
+                            "kind": "literal",
+                            "value": {
+                              "kind": "bool",
+                              "value": true
+                            }
+                          }
+                        },
+                        "then_expr": {
+                          "kind": "div",
+                          "left": {
+                            "kind": "input",
+                            "name": "service_charge_payment_amount"
+                          },
+                          "right": {
+                            "kind": "parameter_lookup",
+                            "parameter": "months_in_service_charge_annual_equivalent_period",
+                            "index": {
+                              "kind": "literal",
+                              "value": {
+                                "kind": "integer",
+                                "value": 0
+                              }
+                            }
+                          }
+                        },
+                        "else_expr": {
+                          "kind": "literal",
+                          "value": {
+                            "kind": "decimal",
+                            "value": "0"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "id": "uk:regulations/uksi/2013/376/schedule/5/paragraph/13#owner_occupier_service_charge_payments_amount",
+        "name": "owner_occupier_service_charge_payments_amount",
+        "entity": "Family",
+        "dtype": "decimal",
+        "unit": "GBP",
+        "period": "Month",
+        "source": "Schedule 5 paragraph 13(1)-(2)",
+        "source_url": null,
+        "semantics": "scalar",
+        "expr": {
+          "kind": "sum_related",
+          "relation": "uk:regulations/uksi/2013/376/schedule/5/paragraph/13#relation.owner_occupier_service_charge_payments",
+          "current_slot": 1,
+          "related_slot": 0,
+          "value": {
+            "kind": "derived",
+            "name": "service_charge_payment_monthly_equivalent"
+          },
+          "where": {
+            "kind": "comparison",
+            "left": {
+              "kind": "input",
+              "name": "payment_is_relevant_service_charge_payment_taken_into_account_under_paragraph_8"
+            },
+            "op": "eq",
+            "right": {
+              "kind": "literal",
+              "value": {
+                "kind": "bool",
+                "value": true
+              }
+            }
+          }
+        }
+      },
+      {
+        "id": "uk:regulations/uksi/2013/376/schedule/5/paragraph/9#owner_occupier_housing_costs_element_amount",
+        "name": "owner_occupier_housing_costs_element_amount",
+        "entity": "Family",
+        "dtype": "decimal",
+        "unit": "GBP",
+        "period": "Month",
+        "source": "Schedule 5 paragraph 9",
+        "source_url": null,
+        "semantics": "scalar",
+        "expr": {
+          "kind": "derived",
+          "name": "owner_occupier_service_charge_payments_amount"
+        }
+      },
+      {
         "name": "amount_included_under_section_9_standard_allowance",
         "entity": "Family",
         "dtype": "decimal",
@@ -2637,6 +3545,34 @@
               "where": null
             }
           ]
+        }
+      },
+      {
+        "name": "amount_calculated_under_schedule_4",
+        "entity": "Family",
+        "dtype": "decimal",
+        "unit": "GBP",
+        "period": "Month",
+        "source": "axiom-programs/uk/universal-credit bridge from UC Regs 2013 reg. 26 to Schedule 4 paragraph 22",
+        "source_url": null,
+        "semantics": "scalar",
+        "expr": {
+          "kind": "derived",
+          "name": "renters_housing_costs_element_calculated_under_this_part"
+        }
+      },
+      {
+        "name": "amount_calculated_under_schedule_5",
+        "entity": "Family",
+        "dtype": "decimal",
+        "unit": "GBP",
+        "period": "Month",
+        "source": "axiom-programs/uk/universal-credit bridge from UC Regs 2013 reg. 26 to Schedule 5 paragraph 9",
+        "source_url": null,
+        "semantics": "scalar",
+        "expr": {
+          "kind": "derived",
+          "name": "owner_occupier_housing_costs_element_amount"
         }
       },
       {
@@ -2799,20 +3735,32 @@
       "effective_joint_claimants_for_deduction",
       "earned_income_for_deduction",
       "higher_rate_disabled_child_addition_applies",
+      "housing_cost_contribution_required_for_non_dependant",
+      "housing_cost_contribution_amount_to_be_deducted_for_non_dependant",
       "lcwra_element_amount",
       "lower_rate_disabled_child_addition_applies",
       "other_relevant_support_amount_left_out_of_account",
       "relevant_childcare_charges_taken_into_account",
       "childcare_costs_element_percentage_amount",
       "childcare_costs_element_amount",
+      "renters_lower_rent_amount",
       "responsible_child_element_included_amount",
       "schedule_4_has_effect_for_claimant",
       "schedule_5_has_effect_for_claimant",
+      "service_charge_payment_count_for_free_period_arrangement",
+      "service_charge_payment_monthly_equivalent",
+      "owner_occupier_service_charge_payments_amount",
+      "owner_occupier_housing_costs_element_amount",
+      "amount_calculated_under_schedule_5",
       "shared_ownership_tenancy",
-      "housing_cost_element_under_shared_ownership",
       "service_charge_payments_amount_calculated_under_schedule_4_for_shared_ownership",
       "standard_allowance_amount",
       "amount_included_under_section_9_standard_allowance",
+      "total_housing_cost_contributions_to_be_deducted_in_renters_case",
+      "renters_housing_costs_element_calculated_under_this_part",
+      "amount_calculated_under_schedule_4",
+      "housing_cost_element_under_shared_ownership",
+      "schedule_amount_after_housing_cost_contributions",
       "unearned_income_for_deduction",
       "unearned_income_deduction_calculated_in_prescribed_manner",
       "universal_credit_award_carer_element_included_amount",
@@ -2830,8 +3778,10 @@
     ],
     "fast_path": {
       "strategy": "generic_bulk",
-      "compatible": true,
-      "blockers": []
+      "compatible": false,
+      "blockers": [
+        "owner_occupier_service_charge_payments_amount: fast mode does not yet support sum_related over related derived values"
+      ]
     }
   }
 }
