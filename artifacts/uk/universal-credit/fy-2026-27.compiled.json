@@ -1,0 +1,2837 @@
+{
+  "program": {
+    "extends": null,
+    "units": [
+      {
+        "name": "GBP",
+        "kind": "currency",
+        "minor_units": 2
+      },
+      {
+        "name": "USD",
+        "kind": "currency",
+        "minor_units": 2
+      },
+      {
+        "name": "EUR",
+        "kind": "currency",
+        "minor_units": 2
+      },
+      {
+        "name": "count",
+        "kind": "count"
+      },
+      {
+        "name": "person",
+        "kind": "count"
+      },
+      {
+        "name": "ratio",
+        "kind": "ratio"
+      },
+      {
+        "name": "status",
+        "kind": "custom",
+        "label": "judgment"
+      }
+    ],
+    "relations": [
+      {
+        "name": "adult_of_benefit_unit",
+        "arity": 2
+      },
+      {
+        "name": "child_of_benefit_unit",
+        "arity": 2
+      }
+    ],
+    "parameters": [
+      {
+        "id": "uk:regulations/uksi/2013/376/22#earned_income_taper_rate",
+        "name": "earned_income_taper_rate",
+        "unit": null,
+        "indexed_by": null,
+        "versions": [
+          {
+            "effective_from": "0001-01-01",
+            "values": {
+              "0": {
+                "kind": "decimal",
+                "value": "0.55"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "uk:regulations/uksi/2013/376/22#higher_work_allowance_single_claimant_amount",
+        "name": "higher_work_allowance_single_claimant_amount",
+        "unit": "GBP",
+        "indexed_by": null,
+        "versions": [
+          {
+            "effective_from": "0001-01-01",
+            "values": {
+              "0": {
+                "kind": "decimal",
+                "value": "710"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "uk:regulations/uksi/2013/376/22#higher_work_allowance_joint_claimants_amount",
+        "name": "higher_work_allowance_joint_claimants_amount",
+        "unit": "GBP",
+        "indexed_by": null,
+        "versions": [
+          {
+            "effective_from": "0001-01-01",
+            "values": {
+              "0": {
+                "kind": "decimal",
+                "value": "710"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "uk:regulations/uksi/2013/376/22#lower_work_allowance_single_claimant_amount",
+        "name": "lower_work_allowance_single_claimant_amount",
+        "unit": "GBP",
+        "indexed_by": null,
+        "versions": [
+          {
+            "effective_from": "0001-01-01",
+            "values": {
+              "0": {
+                "kind": "decimal",
+                "value": "427"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "uk:regulations/uksi/2013/376/22#lower_work_allowance_joint_claimants_amount",
+        "name": "lower_work_allowance_joint_claimants_amount",
+        "unit": "GBP",
+        "indexed_by": null,
+        "versions": [
+          {
+            "effective_from": "0001-01-01",
+            "values": {
+              "0": {
+                "kind": "decimal",
+                "value": "427"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "uk:regulations/uksi/2013/376/36#standard_allowance_single_under_25_amount",
+        "name": "standard_allowance_single_under_25_amount",
+        "unit": "GBP",
+        "indexed_by": null,
+        "versions": [
+          {
+            "effective_from": "0001-01-01",
+            "values": {
+              "0": {
+                "kind": "decimal",
+                "value": "338.58"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "uk:regulations/uksi/2013/376/36#standard_allowance_single_25_or_over_amount",
+        "name": "standard_allowance_single_25_or_over_amount",
+        "unit": "GBP",
+        "indexed_by": null,
+        "versions": [
+          {
+            "effective_from": "0001-01-01",
+            "values": {
+              "0": {
+                "kind": "decimal",
+                "value": "424.9"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "uk:regulations/uksi/2013/376/36#standard_allowance_joint_both_under_25_amount",
+        "name": "standard_allowance_joint_both_under_25_amount",
+        "unit": "GBP",
+        "indexed_by": null,
+        "versions": [
+          {
+            "effective_from": "0001-01-01",
+            "values": {
+              "0": {
+                "kind": "decimal",
+                "value": "528.34"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "uk:regulations/uksi/2013/376/36#standard_allowance_joint_either_25_or_over_amount",
+        "name": "standard_allowance_joint_either_25_or_over_amount",
+        "unit": "GBP",
+        "indexed_by": null,
+        "versions": [
+          {
+            "effective_from": "0001-01-01",
+            "values": {
+              "0": {
+                "kind": "decimal",
+                "value": "666.97"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "uk:regulations/uksi/2013/376/36#first_child_element_amount",
+        "name": "first_child_element_amount",
+        "unit": "GBP",
+        "indexed_by": null,
+        "versions": [
+          {
+            "effective_from": "0001-01-01",
+            "values": {
+              "0": {
+                "kind": "decimal",
+                "value": "351.88"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "uk:regulations/uksi/2013/376/36#second_and_subsequent_child_element_amount",
+        "name": "second_and_subsequent_child_element_amount",
+        "unit": "GBP",
+        "indexed_by": null,
+        "versions": [
+          {
+            "effective_from": "0001-01-01",
+            "values": {
+              "0": {
+                "kind": "decimal",
+                "value": "303.94"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "uk:regulations/uksi/2013/376/36#disabled_child_lower_rate_amount",
+        "name": "disabled_child_lower_rate_amount",
+        "unit": "GBP",
+        "indexed_by": null,
+        "versions": [
+          {
+            "effective_from": "0001-01-01",
+            "values": {
+              "0": {
+                "kind": "decimal",
+                "value": "164.79"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "uk:regulations/uksi/2013/376/36#disabled_child_higher_rate_amount",
+        "name": "disabled_child_higher_rate_amount",
+        "unit": "GBP",
+        "indexed_by": null,
+        "versions": [
+          {
+            "effective_from": "0001-01-01",
+            "values": {
+              "0": {
+                "kind": "decimal",
+                "value": "514.71"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "uk:regulations/uksi/2013/376/36#lcwra_ordinary_claimant_amount",
+        "name": "lcwra_ordinary_claimant_amount",
+        "unit": "GBP",
+        "indexed_by": null,
+        "versions": [
+          {
+            "effective_from": "0001-01-01",
+            "values": {
+              "0": {
+                "kind": "decimal",
+                "value": "217.26"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "uk:regulations/uksi/2013/376/36#lcwra_protected_claimant_amount",
+        "name": "lcwra_protected_claimant_amount",
+        "unit": "GBP",
+        "indexed_by": null,
+        "versions": [
+          {
+            "effective_from": "0001-01-01",
+            "values": {
+              "0": {
+                "kind": "decimal",
+                "value": "429.8"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "uk:regulations/uksi/2013/376/36#carer_element_amount",
+        "name": "carer_element_amount",
+        "unit": "GBP",
+        "indexed_by": null,
+        "versions": [
+          {
+            "effective_from": "0001-01-01",
+            "values": {
+              "0": {
+                "kind": "decimal",
+                "value": "209.34"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "uk:regulations/uksi/2013/376/36#childcare_costs_element_one_child_maximum_amount",
+        "name": "childcare_costs_element_one_child_maximum_amount",
+        "unit": "GBP",
+        "indexed_by": null,
+        "versions": [
+          {
+            "effective_from": "0001-01-01",
+            "values": {
+              "0": {
+                "kind": "decimal",
+                "value": "1071.09"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "uk:regulations/uksi/2013/376/36#childcare_costs_element_two_or_more_children_maximum_amount",
+        "name": "childcare_costs_element_two_or_more_children_maximum_amount",
+        "unit": "GBP",
+        "indexed_by": null,
+        "versions": [
+          {
+            "effective_from": "0001-01-01",
+            "values": {
+              "0": {
+                "kind": "decimal",
+                "value": "1836.16"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "uk:regulations/uksi/2013/376/34#childcare_costs_reimbursement_rate",
+        "name": "childcare_costs_reimbursement_rate",
+        "unit": null,
+        "indexed_by": null,
+        "versions": [
+          {
+            "effective_from": "0001-01-01",
+            "values": {
+              "0": {
+                "kind": "decimal",
+                "value": "0.85"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "derived": [
+      {
+        "id": "uk:statutes/ukpga/2012/5/8#universal_credit_maximum_amount",
+        "name": "universal_credit_maximum_amount",
+        "entity": "Family",
+        "dtype": "decimal",
+        "unit": "GBP",
+        "period": "Month",
+        "source": "Welfare Reform Act 2012 s.8(2)",
+        "source_url": null,
+        "semantics": "scalar",
+        "expr": {
+          "kind": "add",
+          "items": [
+            {
+              "kind": "add",
+              "items": [
+                {
+                  "kind": "add",
+                  "items": [
+                    {
+                      "kind": "derived",
+                      "name": "amount_included_under_section_9_standard_allowance"
+                    },
+                    {
+                      "kind": "derived",
+                      "name": "amount_included_under_section_10_responsibility_for_children_and_young_persons"
+                    }
+                  ]
+                },
+                {
+                  "kind": "derived",
+                  "name": "amount_included_under_section_11_housing_costs"
+                }
+              ]
+            },
+            {
+              "kind": "derived",
+              "name": "amount_included_under_section_12_other_particular_needs_or_circumstances"
+            }
+          ]
+        }
+      },
+      {
+        "id": "uk:statutes/ukpga/2012/5/8#universal_credit_amounts_to_be_deducted",
+        "name": "universal_credit_amounts_to_be_deducted",
+        "entity": "Family",
+        "dtype": "decimal",
+        "unit": "GBP",
+        "period": "Month",
+        "source": "Welfare Reform Act 2012 s.8(3)",
+        "source_url": null,
+        "semantics": "scalar",
+        "expr": {
+          "kind": "add",
+          "items": [
+            {
+              "kind": "derived",
+              "name": "earned_income_deduction_calculated_in_prescribed_manner"
+            },
+            {
+              "kind": "derived",
+              "name": "unearned_income_deduction_calculated_in_prescribed_manner"
+            }
+          ]
+        }
+      },
+      {
+        "id": "uk:statutes/ukpga/2012/5/8#universal_credit_award_amount",
+        "name": "universal_credit_award_amount",
+        "entity": "Family",
+        "dtype": "decimal",
+        "unit": "GBP",
+        "period": "Month",
+        "source": "Welfare Reform Act 2012 s.8(1)",
+        "source_url": null,
+        "semantics": "scalar",
+        "expr": {
+          "kind": "max",
+          "items": [
+            {
+              "kind": "literal",
+              "value": {
+                "kind": "decimal",
+                "value": "0"
+              }
+            },
+            {
+              "kind": "sub",
+              "left": {
+                "kind": "derived",
+                "name": "universal_credit_maximum_amount"
+              },
+              "right": {
+                "kind": "derived",
+                "name": "universal_credit_amounts_to_be_deducted"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "id": "uk:regulations/uksi/2013/376/22#effective_joint_claimants_for_deduction",
+        "name": "effective_joint_claimants_for_deduction",
+        "entity": "Family",
+        "dtype": "judgment",
+        "unit": null,
+        "period": "Month",
+        "source": "Universal Credit Regulations 2013, regulation 22(3)",
+        "source_url": null,
+        "semantics": "judgment",
+        "expr": {
+          "kind": "or",
+          "items": [
+            {
+              "kind": "comparison",
+              "left": {
+                "kind": "input",
+                "name": "claim_is_for_joint_claimants"
+              },
+              "op": "eq",
+              "right": {
+                "kind": "literal",
+                "value": {
+                  "kind": "bool",
+                  "value": true
+                }
+              }
+            },
+            {
+              "kind": "and",
+              "items": [
+                {
+                  "kind": "comparison",
+                  "left": {
+                    "kind": "input",
+                    "name": "claimant_is_member_of_couple"
+                  },
+                  "op": "eq",
+                  "right": {
+                    "kind": "literal",
+                    "value": {
+                      "kind": "bool",
+                      "value": true
+                    }
+                  }
+                },
+                {
+                  "kind": "comparison",
+                  "left": {
+                    "kind": "input",
+                    "name": "claimant_makes_claim_as_single_person"
+                  },
+                  "op": "eq",
+                  "right": {
+                    "kind": "literal",
+                    "value": {
+                      "kind": "bool",
+                      "value": true
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "uk:regulations/uksi/2013/376/22#work_allowance_specified_for_deduction",
+        "name": "work_allowance_specified_for_deduction",
+        "entity": "Family",
+        "dtype": "judgment",
+        "unit": null,
+        "period": "Month",
+        "source": "Universal Credit Regulations 2013, regulation 22(1)(b)",
+        "source_url": null,
+        "semantics": "judgment",
+        "expr": {
+          "kind": "or",
+          "items": [
+            {
+              "kind": "and",
+              "items": [
+                {
+                  "kind": "derived",
+                  "name": "effective_joint_claimants_for_deduction"
+                },
+                {
+                  "kind": "or",
+                  "items": [
+                    {
+                      "kind": "comparison",
+                      "left": {
+                        "kind": "input",
+                        "name": "joint_claimants_responsible_for_child_or_qualifying_young_person"
+                      },
+                      "op": "eq",
+                      "right": {
+                        "kind": "literal",
+                        "value": {
+                          "kind": "bool",
+                          "value": true
+                        }
+                      }
+                    },
+                    {
+                      "kind": "comparison",
+                      "left": {
+                        "kind": "input",
+                        "name": "one_or_both_joint_claimants_have_limited_capability_for_work"
+                      },
+                      "op": "eq",
+                      "right": {
+                        "kind": "literal",
+                        "value": {
+                          "kind": "bool",
+                          "value": true
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "and",
+              "items": [
+                {
+                  "kind": "not",
+                  "item": {
+                    "kind": "derived",
+                    "name": "effective_joint_claimants_for_deduction"
+                  }
+                },
+                {
+                  "kind": "or",
+                  "items": [
+                    {
+                      "kind": "comparison",
+                      "left": {
+                        "kind": "input",
+                        "name": "single_claimant_responsible_for_child_or_qualifying_young_person"
+                      },
+                      "op": "eq",
+                      "right": {
+                        "kind": "literal",
+                        "value": {
+                          "kind": "bool",
+                          "value": true
+                        }
+                      }
+                    },
+                    {
+                      "kind": "comparison",
+                      "left": {
+                        "kind": "input",
+                        "name": "single_claimant_has_limited_capability_for_work"
+                      },
+                      "op": "eq",
+                      "right": {
+                        "kind": "literal",
+                        "value": {
+                          "kind": "bool",
+                          "value": true
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "uk:regulations/uksi/2013/376/22#earned_income_for_deduction",
+        "name": "earned_income_for_deduction",
+        "entity": "Family",
+        "dtype": "decimal",
+        "unit": "GBP",
+        "period": "Month",
+        "source": "Universal Credit Regulations 2013, regulation 22(1)(b) and 22(3)",
+        "source_url": null,
+        "semantics": "scalar",
+        "expr": {
+          "kind": "if",
+          "condition": {
+            "kind": "derived",
+            "name": "effective_joint_claimants_for_deduction"
+          },
+          "then_expr": {
+            "kind": "input",
+            "name": "joint_claimants_combined_earned_income_in_assessment_period"
+          },
+          "else_expr": {
+            "kind": "input",
+            "name": "claimant_earned_income_in_assessment_period"
+          }
+        }
+      },
+      {
+        "id": "uk:regulations/uksi/2013/376/22#unearned_income_for_deduction",
+        "name": "unearned_income_for_deduction",
+        "entity": "Family",
+        "dtype": "decimal",
+        "unit": "GBP",
+        "period": "Month",
+        "source": "Universal Credit Regulations 2013, regulation 22(1)(a) and 22(3)",
+        "source_url": null,
+        "semantics": "scalar",
+        "expr": {
+          "kind": "if",
+          "condition": {
+            "kind": "derived",
+            "name": "effective_joint_claimants_for_deduction"
+          },
+          "then_expr": {
+            "kind": "input",
+            "name": "joint_claimants_combined_unearned_income_in_assessment_period"
+          },
+          "else_expr": {
+            "kind": "input",
+            "name": "claimant_unearned_income_in_assessment_period"
+          }
+        }
+      },
+      {
+        "id": "uk:regulations/uksi/2013/376/22#applicable_work_allowance_amount",
+        "name": "applicable_work_allowance_amount",
+        "entity": "Family",
+        "dtype": "decimal",
+        "unit": "GBP",
+        "period": "Month",
+        "source": "Universal Credit Regulations 2013, regulation 22(2)",
+        "source_url": null,
+        "semantics": "scalar",
+        "expr": {
+          "kind": "if",
+          "condition": {
+            "kind": "derived",
+            "name": "work_allowance_specified_for_deduction"
+          },
+          "then_expr": {
+            "kind": "if",
+            "condition": {
+              "kind": "comparison",
+              "left": {
+                "kind": "input",
+                "name": "award_contains_housing_costs_element"
+              },
+              "op": "eq",
+              "right": {
+                "kind": "literal",
+                "value": {
+                  "kind": "bool",
+                  "value": true
+                }
+              }
+            },
+            "then_expr": {
+              "kind": "if",
+              "condition": {
+                "kind": "derived",
+                "name": "effective_joint_claimants_for_deduction"
+              },
+              "then_expr": {
+                "kind": "parameter_lookup",
+                "parameter": "lower_work_allowance_joint_claimants_amount",
+                "index": {
+                  "kind": "literal",
+                  "value": {
+                    "kind": "integer",
+                    "value": 0
+                  }
+                }
+              },
+              "else_expr": {
+                "kind": "parameter_lookup",
+                "parameter": "lower_work_allowance_single_claimant_amount",
+                "index": {
+                  "kind": "literal",
+                  "value": {
+                    "kind": "integer",
+                    "value": 0
+                  }
+                }
+              }
+            },
+            "else_expr": {
+              "kind": "if",
+              "condition": {
+                "kind": "derived",
+                "name": "effective_joint_claimants_for_deduction"
+              },
+              "then_expr": {
+                "kind": "parameter_lookup",
+                "parameter": "higher_work_allowance_joint_claimants_amount",
+                "index": {
+                  "kind": "literal",
+                  "value": {
+                    "kind": "integer",
+                    "value": 0
+                  }
+                }
+              },
+              "else_expr": {
+                "kind": "parameter_lookup",
+                "parameter": "higher_work_allowance_single_claimant_amount",
+                "index": {
+                  "kind": "literal",
+                  "value": {
+                    "kind": "integer",
+                    "value": 0
+                  }
+                }
+              }
+            }
+          },
+          "else_expr": {
+            "kind": "literal",
+            "value": {
+              "kind": "decimal",
+              "value": "0"
+            }
+          }
+        }
+      },
+      {
+        "id": "uk:regulations/uksi/2013/376/22#earned_income_amount_subject_to_taper",
+        "name": "earned_income_amount_subject_to_taper",
+        "entity": "Family",
+        "dtype": "decimal",
+        "unit": "GBP",
+        "period": "Month",
+        "source": "Universal Credit Regulations 2013, regulation 22(1)(b)",
+        "source_url": null,
+        "semantics": "scalar",
+        "expr": {
+          "kind": "if",
+          "condition": {
+            "kind": "derived",
+            "name": "work_allowance_specified_for_deduction"
+          },
+          "then_expr": {
+            "kind": "max",
+            "items": [
+              {
+                "kind": "literal",
+                "value": {
+                  "kind": "decimal",
+                  "value": "0"
+                }
+              },
+              {
+                "kind": "sub",
+                "left": {
+                  "kind": "derived",
+                  "name": "earned_income_for_deduction"
+                },
+                "right": {
+                  "kind": "derived",
+                  "name": "applicable_work_allowance_amount"
+                }
+              }
+            ]
+          },
+          "else_expr": {
+            "kind": "max",
+            "items": [
+              {
+                "kind": "literal",
+                "value": {
+                  "kind": "decimal",
+                  "value": "0"
+                }
+              },
+              {
+                "kind": "derived",
+                "name": "earned_income_for_deduction"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "uk:regulations/uksi/2013/376/22#earned_income_deduction_from_maximum_amount",
+        "name": "earned_income_deduction_from_maximum_amount",
+        "entity": "Family",
+        "dtype": "decimal",
+        "unit": "GBP",
+        "period": "Month",
+        "source": "Universal Credit Regulations 2013, regulation 22(1)(b)",
+        "source_url": null,
+        "semantics": "scalar",
+        "expr": {
+          "kind": "mul",
+          "left": {
+            "kind": "parameter_lookup",
+            "parameter": "earned_income_taper_rate",
+            "index": {
+              "kind": "literal",
+              "value": {
+                "kind": "integer",
+                "value": 0
+              }
+            }
+          },
+          "right": {
+            "kind": "derived",
+            "name": "earned_income_amount_subject_to_taper"
+          }
+        }
+      },
+      {
+        "id": "uk:regulations/uksi/2013/376/22#universal_credit_award_deduction_from_maximum_amount",
+        "name": "universal_credit_award_deduction_from_maximum_amount",
+        "entity": "Family",
+        "dtype": "decimal",
+        "unit": "GBP",
+        "period": "Month",
+        "source": "Universal Credit Regulations 2013, regulation 22(1)",
+        "source_url": null,
+        "semantics": "scalar",
+        "expr": {
+          "kind": "add",
+          "items": [
+            {
+              "kind": "max",
+              "items": [
+                {
+                  "kind": "literal",
+                  "value": {
+                    "kind": "decimal",
+                    "value": "0"
+                  }
+                },
+                {
+                  "kind": "derived",
+                  "name": "unearned_income_for_deduction"
+                }
+              ]
+            },
+            {
+              "kind": "derived",
+              "name": "earned_income_deduction_from_maximum_amount"
+            }
+          ]
+        }
+      },
+      {
+        "id": "uk:regulations/uksi/2013/376/36#standard_allowance_amount",
+        "name": "standard_allowance_amount",
+        "entity": "Family",
+        "dtype": "decimal",
+        "unit": "GBP",
+        "period": "Month",
+        "source": "Universal Credit Regulations 2013, regulation 36 table and single-claimant sentence",
+        "source_url": null,
+        "semantics": "scalar",
+        "expr": {
+          "kind": "if",
+          "condition": {
+            "kind": "comparison",
+            "left": {
+              "kind": "input",
+              "name": "award_is_for_joint_claimants"
+            },
+            "op": "eq",
+            "right": {
+              "kind": "literal",
+              "value": {
+                "kind": "bool",
+                "value": true
+              }
+            }
+          },
+          "then_expr": {
+            "kind": "if",
+            "condition": {
+              "kind": "comparison",
+              "left": {
+                "kind": "input",
+                "name": "either_joint_claimant_is_aged_25_or_over"
+              },
+              "op": "eq",
+              "right": {
+                "kind": "literal",
+                "value": {
+                  "kind": "bool",
+                  "value": true
+                }
+              }
+            },
+            "then_expr": {
+              "kind": "parameter_lookup",
+              "parameter": "standard_allowance_joint_either_25_or_over_amount",
+              "index": {
+                "kind": "literal",
+                "value": {
+                  "kind": "integer",
+                  "value": 0
+                }
+              }
+            },
+            "else_expr": {
+              "kind": "parameter_lookup",
+              "parameter": "standard_allowance_joint_both_under_25_amount",
+              "index": {
+                "kind": "literal",
+                "value": {
+                  "kind": "integer",
+                  "value": 0
+                }
+              }
+            }
+          },
+          "else_expr": {
+            "kind": "if",
+            "condition": {
+              "kind": "comparison",
+              "left": {
+                "kind": "input",
+                "name": "single_claimant_is_aged_25_or_over"
+              },
+              "op": "eq",
+              "right": {
+                "kind": "literal",
+                "value": {
+                  "kind": "bool",
+                  "value": true
+                }
+              }
+            },
+            "then_expr": {
+              "kind": "parameter_lookup",
+              "parameter": "standard_allowance_single_25_or_over_amount",
+              "index": {
+                "kind": "literal",
+                "value": {
+                  "kind": "integer",
+                  "value": 0
+                }
+              }
+            },
+            "else_expr": {
+              "kind": "parameter_lookup",
+              "parameter": "standard_allowance_single_under_25_amount",
+              "index": {
+                "kind": "literal",
+                "value": {
+                  "kind": "integer",
+                  "value": 0
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "id": "uk:regulations/uksi/2013/376/36#child_element_amount",
+        "name": "child_element_amount",
+        "entity": "Person",
+        "dtype": "decimal",
+        "unit": "GBP",
+        "period": "Month",
+        "source": "Universal Credit Regulations 2013, regulation 36 table, Child element",
+        "source_url": null,
+        "semantics": "scalar",
+        "expr": {
+          "kind": "if",
+          "condition": {
+            "kind": "comparison",
+            "left": {
+              "kind": "input",
+              "name": "child_is_first_child_or_qualifying_young_person"
+            },
+            "op": "eq",
+            "right": {
+              "kind": "literal",
+              "value": {
+                "kind": "bool",
+                "value": true
+              }
+            }
+          },
+          "then_expr": {
+            "kind": "parameter_lookup",
+            "parameter": "first_child_element_amount",
+            "index": {
+              "kind": "literal",
+              "value": {
+                "kind": "integer",
+                "value": 0
+              }
+            }
+          },
+          "else_expr": {
+            "kind": "if",
+            "condition": {
+              "kind": "comparison",
+              "left": {
+                "kind": "input",
+                "name": "child_is_second_or_subsequent_child_or_qualifying_young_person"
+              },
+              "op": "eq",
+              "right": {
+                "kind": "literal",
+                "value": {
+                  "kind": "bool",
+                  "value": true
+                }
+              }
+            },
+            "then_expr": {
+              "kind": "parameter_lookup",
+              "parameter": "second_and_subsequent_child_element_amount",
+              "index": {
+                "kind": "literal",
+                "value": {
+                  "kind": "integer",
+                  "value": 0
+                }
+              }
+            },
+            "else_expr": {
+              "kind": "literal",
+              "value": {
+                "kind": "decimal",
+                "value": "0"
+              }
+            }
+          }
+        }
+      },
+      {
+        "id": "uk:regulations/uksi/2013/376/36#disabled_child_additional_amount",
+        "name": "disabled_child_additional_amount",
+        "entity": "Person",
+        "dtype": "decimal",
+        "unit": "GBP",
+        "period": "Month",
+        "source": "Universal Credit Regulations 2013, regulation 36 table, Additional amount for disabled child or qualifying young person",
+        "source_url": null,
+        "semantics": "scalar",
+        "expr": {
+          "kind": "if",
+          "condition": {
+            "kind": "comparison",
+            "left": {
+              "kind": "input",
+              "name": "disabled_child_higher_rate_applies"
+            },
+            "op": "eq",
+            "right": {
+              "kind": "literal",
+              "value": {
+                "kind": "bool",
+                "value": true
+              }
+            }
+          },
+          "then_expr": {
+            "kind": "parameter_lookup",
+            "parameter": "disabled_child_higher_rate_amount",
+            "index": {
+              "kind": "literal",
+              "value": {
+                "kind": "integer",
+                "value": 0
+              }
+            }
+          },
+          "else_expr": {
+            "kind": "if",
+            "condition": {
+              "kind": "comparison",
+              "left": {
+                "kind": "input",
+                "name": "disabled_child_lower_rate_applies"
+              },
+              "op": "eq",
+              "right": {
+                "kind": "literal",
+                "value": {
+                  "kind": "bool",
+                  "value": true
+                }
+              }
+            },
+            "then_expr": {
+              "kind": "parameter_lookup",
+              "parameter": "disabled_child_lower_rate_amount",
+              "index": {
+                "kind": "literal",
+                "value": {
+                  "kind": "integer",
+                  "value": 0
+                }
+              }
+            },
+            "else_expr": {
+              "kind": "literal",
+              "value": {
+                "kind": "decimal",
+                "value": "0"
+              }
+            }
+          }
+        }
+      },
+      {
+        "id": "uk:regulations/uksi/2013/376/36#lcwra_element_amount",
+        "name": "lcwra_element_amount",
+        "entity": "Person",
+        "dtype": "decimal",
+        "unit": "GBP",
+        "period": "Month",
+        "source": "Universal Credit Regulations 2013, regulation 36 table, LCWRA element",
+        "source_url": null,
+        "semantics": "scalar",
+        "expr": {
+          "kind": "if",
+          "condition": {
+            "kind": "comparison",
+            "left": {
+              "kind": "input",
+              "name": "claimant_has_limited_capability_for_work_and_work_related_activity"
+            },
+            "op": "eq",
+            "right": {
+              "kind": "literal",
+              "value": {
+                "kind": "bool",
+                "value": true
+              }
+            }
+          },
+          "then_expr": {
+            "kind": "if",
+            "condition": {
+              "kind": "or",
+              "items": [
+                {
+                  "kind": "or",
+                  "items": [
+                    {
+                      "kind": "comparison",
+                      "left": {
+                        "kind": "input",
+                        "name": "claimant_is_pre_commencement_lcwra_claimant"
+                      },
+                      "op": "eq",
+                      "right": {
+                        "kind": "literal",
+                        "value": {
+                          "kind": "bool",
+                          "value": true
+                        }
+                      }
+                    },
+                    {
+                      "kind": "comparison",
+                      "left": {
+                        "kind": "input",
+                        "name": "claimant_is_severe_conditions_criteria_claimant"
+                      },
+                      "op": "eq",
+                      "right": {
+                        "kind": "literal",
+                        "value": {
+                          "kind": "bool",
+                          "value": true
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "kind": "comparison",
+                  "left": {
+                    "kind": "input",
+                    "name": "claimant_is_terminally_ill"
+                  },
+                  "op": "eq",
+                  "right": {
+                    "kind": "literal",
+                    "value": {
+                      "kind": "bool",
+                      "value": true
+                    }
+                  }
+                }
+              ]
+            },
+            "then_expr": {
+              "kind": "parameter_lookup",
+              "parameter": "lcwra_protected_claimant_amount",
+              "index": {
+                "kind": "literal",
+                "value": {
+                  "kind": "integer",
+                  "value": 0
+                }
+              }
+            },
+            "else_expr": {
+              "kind": "parameter_lookup",
+              "parameter": "lcwra_ordinary_claimant_amount",
+              "index": {
+                "kind": "literal",
+                "value": {
+                  "kind": "integer",
+                  "value": 0
+                }
+              }
+            }
+          },
+          "else_expr": {
+            "kind": "literal",
+            "value": {
+              "kind": "decimal",
+              "value": "0"
+            }
+          }
+        }
+      },
+      {
+        "id": "uk:regulations/uksi/2013/376/36#carer_element",
+        "name": "carer_element",
+        "entity": "Person",
+        "dtype": "decimal",
+        "unit": "GBP",
+        "period": "Month",
+        "source": "Universal Credit Regulations 2013, regulation 36 table, Carer element",
+        "source_url": null,
+        "semantics": "scalar",
+        "expr": {
+          "kind": "if",
+          "condition": {
+            "kind": "comparison",
+            "left": {
+              "kind": "input",
+              "name": "carer_element_applies"
+            },
+            "op": "eq",
+            "right": {
+              "kind": "literal",
+              "value": {
+                "kind": "bool",
+                "value": true
+              }
+            }
+          },
+          "then_expr": {
+            "kind": "parameter_lookup",
+            "parameter": "carer_element_amount",
+            "index": {
+              "kind": "literal",
+              "value": {
+                "kind": "integer",
+                "value": 0
+              }
+            }
+          },
+          "else_expr": {
+            "kind": "literal",
+            "value": {
+              "kind": "decimal",
+              "value": "0"
+            }
+          }
+        }
+      },
+      {
+        "id": "uk:regulations/uksi/2013/376/36#childcare_costs_element_maximum_amount",
+        "name": "childcare_costs_element_maximum_amount",
+        "entity": "Family",
+        "dtype": "decimal",
+        "unit": "GBP",
+        "period": "Month",
+        "source": "Universal Credit Regulations 2013, regulation 36 table, Childcare costs element",
+        "source_url": null,
+        "semantics": "scalar",
+        "expr": {
+          "kind": "if",
+          "condition": {
+            "kind": "comparison",
+            "left": {
+              "kind": "input",
+              "name": "childcare_costs_element_child_count"
+            },
+            "op": "eq",
+            "right": {
+              "kind": "literal",
+              "value": {
+                "kind": "integer",
+                "value": 1
+              }
+            }
+          },
+          "then_expr": {
+            "kind": "parameter_lookup",
+            "parameter": "childcare_costs_element_one_child_maximum_amount",
+            "index": {
+              "kind": "literal",
+              "value": {
+                "kind": "integer",
+                "value": 0
+              }
+            }
+          },
+          "else_expr": {
+            "kind": "if",
+            "condition": {
+              "kind": "comparison",
+              "left": {
+                "kind": "input",
+                "name": "childcare_costs_element_child_count"
+              },
+              "op": "gte",
+              "right": {
+                "kind": "literal",
+                "value": {
+                  "kind": "integer",
+                  "value": 2
+                }
+              }
+            },
+            "then_expr": {
+              "kind": "parameter_lookup",
+              "parameter": "childcare_costs_element_two_or_more_children_maximum_amount",
+              "index": {
+                "kind": "literal",
+                "value": {
+                  "kind": "integer",
+                  "value": 0
+                }
+              }
+            },
+            "else_expr": {
+              "kind": "literal",
+              "value": {
+                "kind": "decimal",
+                "value": "0"
+              }
+            }
+          }
+        }
+      },
+      {
+        "id": "uk:regulations/uksi/2013/376/24#higher_rate_disabled_child_addition_applies",
+        "name": "higher_rate_disabled_child_addition_applies",
+        "entity": "Person",
+        "dtype": "judgment",
+        "unit": null,
+        "period": "Month",
+        "source": "regulation 24(2)(b)",
+        "source_url": null,
+        "semantics": "judgment",
+        "expr": {
+          "kind": "or",
+          "items": [
+            {
+              "kind": "or",
+              "items": [
+                {
+                  "kind": "or",
+                  "items": [
+                    {
+                      "kind": "or",
+                      "items": [
+                        {
+                          "kind": "or",
+                          "items": [
+                            {
+                              "kind": "comparison",
+                              "left": {
+                                "kind": "input",
+                                "name": "child_or_qualifying_young_person_entitled_to_care_component_of_disability_living_allowance_at_highest_rate"
+                              },
+                              "op": "eq",
+                              "right": {
+                                "kind": "literal",
+                                "value": {
+                                  "kind": "bool",
+                                  "value": true
+                                }
+                              }
+                            },
+                            {
+                              "kind": "comparison",
+                              "left": {
+                                "kind": "input",
+                                "name": "child_or_qualifying_young_person_entitled_to_care_component_of_scottish_adult_disability_living_allowance_at_highest_rate"
+                              },
+                              "op": "eq",
+                              "right": {
+                                "kind": "literal",
+                                "value": {
+                                  "kind": "bool",
+                                  "value": true
+                                }
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "kind": "comparison",
+                          "left": {
+                            "kind": "input",
+                            "name": "child_or_qualifying_young_person_entitled_to_care_component_of_child_disability_payment_at_highest_rate"
+                          },
+                          "op": "eq",
+                          "right": {
+                            "kind": "literal",
+                            "value": {
+                              "kind": "bool",
+                              "value": true
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "comparison",
+                      "left": {
+                        "kind": "input",
+                        "name": "child_or_qualifying_young_person_entitled_to_daily_living_component_of_adult_disability_payment_at_enhanced_rate"
+                      },
+                      "op": "eq",
+                      "right": {
+                        "kind": "literal",
+                        "value": {
+                          "kind": "bool",
+                          "value": true
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "kind": "comparison",
+                  "left": {
+                    "kind": "input",
+                    "name": "child_or_qualifying_young_person_entitled_to_daily_living_component_of_personal_independence_payment_at_enhanced_rate"
+                  },
+                  "op": "eq",
+                  "right": {
+                    "kind": "literal",
+                    "value": {
+                      "kind": "bool",
+                      "value": true
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "comparison",
+              "left": {
+                "kind": "input",
+                "name": "child_or_qualifying_young_person_is_blind"
+              },
+              "op": "eq",
+              "right": {
+                "kind": "literal",
+                "value": {
+                  "kind": "bool",
+                  "value": true
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "id": "uk:regulations/uksi/2013/376/24#lower_rate_disabled_child_addition_applies",
+        "name": "lower_rate_disabled_child_addition_applies",
+        "entity": "Person",
+        "dtype": "judgment",
+        "unit": null,
+        "period": "Month",
+        "source": "regulation 24(2)(a)",
+        "source_url": null,
+        "semantics": "judgment",
+        "expr": {
+          "kind": "and",
+          "items": [
+            {
+              "kind": "or",
+              "items": [
+                {
+                  "kind": "or",
+                  "items": [
+                    {
+                      "kind": "or",
+                      "items": [
+                        {
+                          "kind": "or",
+                          "items": [
+                            {
+                              "kind": "comparison",
+                              "left": {
+                                "kind": "input",
+                                "name": "child_or_qualifying_young_person_entitled_to_disability_living_allowance"
+                              },
+                              "op": "eq",
+                              "right": {
+                                "kind": "literal",
+                                "value": {
+                                  "kind": "bool",
+                                  "value": true
+                                }
+                              }
+                            },
+                            {
+                              "kind": "comparison",
+                              "left": {
+                                "kind": "input",
+                                "name": "child_or_qualifying_young_person_entitled_to_scottish_adult_disability_living_allowance"
+                              },
+                              "op": "eq",
+                              "right": {
+                                "kind": "literal",
+                                "value": {
+                                  "kind": "bool",
+                                  "value": true
+                                }
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "kind": "comparison",
+                          "left": {
+                            "kind": "input",
+                            "name": "child_or_qualifying_young_person_entitled_to_child_disability_payment"
+                          },
+                          "op": "eq",
+                          "right": {
+                            "kind": "literal",
+                            "value": {
+                              "kind": "bool",
+                              "value": true
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "comparison",
+                      "left": {
+                        "kind": "input",
+                        "name": "child_or_qualifying_young_person_entitled_to_adult_disability_payment"
+                      },
+                      "op": "eq",
+                      "right": {
+                        "kind": "literal",
+                        "value": {
+                          "kind": "bool",
+                          "value": true
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "kind": "comparison",
+                  "left": {
+                    "kind": "input",
+                    "name": "child_or_qualifying_young_person_entitled_to_personal_independence_payment"
+                  },
+                  "op": "eq",
+                  "right": {
+                    "kind": "literal",
+                    "value": {
+                      "kind": "bool",
+                      "value": true
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "not",
+              "item": {
+                "kind": "derived",
+                "name": "higher_rate_disabled_child_addition_applies"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "id": "uk:regulations/uksi/2013/376/24#responsible_child_element_included_amount",
+        "name": "responsible_child_element_included_amount",
+        "entity": "Person",
+        "dtype": "decimal",
+        "unit": "GBP",
+        "period": "Month",
+        "source": "regulation 24(1)",
+        "source_url": null,
+        "semantics": "scalar",
+        "expr": {
+          "kind": "if",
+          "condition": {
+            "kind": "comparison",
+            "left": {
+              "kind": "input",
+              "name": "claimant_responsible_for_child_or_qualifying_young_person"
+            },
+            "op": "eq",
+            "right": {
+              "kind": "literal",
+              "value": {
+                "kind": "bool",
+                "value": true
+              }
+            }
+          },
+          "then_expr": {
+            "kind": "derived",
+            "name": "child_element_amount"
+          },
+          "else_expr": {
+            "kind": "literal",
+            "value": {
+              "kind": "decimal",
+              "value": "0"
+            }
+          }
+        }
+      },
+      {
+        "id": "uk:regulations/uksi/2013/376/26#schedule_4_has_effect_for_claimant",
+        "name": "schedule_4_has_effect_for_claimant",
+        "entity": "Person",
+        "dtype": "judgment",
+        "unit": null,
+        "period": "Month",
+        "source": "regulation 26(2)",
+        "source_url": null,
+        "semantics": "judgment",
+        "expr": {
+          "kind": "and",
+          "items": [
+            {
+              "kind": "comparison",
+              "left": {
+                "kind": "input",
+                "name": "claimant_meets_all_conditions_specified_in_regulation_25"
+              },
+              "op": "eq",
+              "right": {
+                "kind": "literal",
+                "value": {
+                  "kind": "bool",
+                  "value": true
+                }
+              }
+            },
+            {
+              "kind": "comparison",
+              "left": {
+                "kind": "input",
+                "name": "claimant_is_liable_for_rent_payments"
+              },
+              "op": "eq",
+              "right": {
+                "kind": "literal",
+                "value": {
+                  "kind": "bool",
+                  "value": true
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "id": "uk:regulations/uksi/2013/376/26#schedule_5_has_effect_for_claimant",
+        "name": "schedule_5_has_effect_for_claimant",
+        "entity": "Person",
+        "dtype": "judgment",
+        "unit": null,
+        "period": "Month",
+        "source": "regulation 26(3)",
+        "source_url": null,
+        "semantics": "judgment",
+        "expr": {
+          "kind": "and",
+          "items": [
+            {
+              "kind": "comparison",
+              "left": {
+                "kind": "input",
+                "name": "claimant_meets_all_conditions_specified_in_regulation_25"
+              },
+              "op": "eq",
+              "right": {
+                "kind": "literal",
+                "value": {
+                  "kind": "bool",
+                  "value": true
+                }
+              }
+            },
+            {
+              "kind": "comparison",
+              "left": {
+                "kind": "input",
+                "name": "claimant_is_liable_for_service_charge_payments"
+              },
+              "op": "eq",
+              "right": {
+                "kind": "literal",
+                "value": {
+                  "kind": "bool",
+                  "value": true
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "id": "uk:regulations/uksi/2013/376/26#shared_ownership_tenancy",
+        "name": "shared_ownership_tenancy",
+        "entity": "Person",
+        "dtype": "judgment",
+        "unit": null,
+        "period": "Month",
+        "source": "regulation 26(6)",
+        "source_url": null,
+        "semantics": "judgment",
+        "expr": {
+          "kind": "or",
+          "items": [
+            {
+              "kind": "comparison",
+              "left": {
+                "kind": "input",
+                "name": "claimant_has_shared_ownership_tenancy_in_england_or_wales"
+              },
+              "op": "eq",
+              "right": {
+                "kind": "literal",
+                "value": {
+                  "kind": "bool",
+                  "value": true
+                }
+              }
+            },
+            {
+              "kind": "comparison",
+              "left": {
+                "kind": "input",
+                "name": "claimant_has_shared_ownership_tenancy_in_scotland"
+              },
+              "op": "eq",
+              "right": {
+                "kind": "literal",
+                "value": {
+                  "kind": "bool",
+                  "value": true
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "id": "uk:regulations/uksi/2013/376/26#housing_cost_element_under_shared_ownership",
+        "name": "housing_cost_element_under_shared_ownership",
+        "entity": "Person",
+        "dtype": "decimal",
+        "unit": "GBP",
+        "period": "Month",
+        "source": "regulation 26(4) and 26(5)",
+        "source_url": null,
+        "semantics": "scalar",
+        "expr": {
+          "kind": "if",
+          "condition": {
+            "kind": "and",
+            "items": [
+              {
+                "kind": "and",
+                "items": [
+                  {
+                    "kind": "derived",
+                    "name": "shared_ownership_tenancy"
+                  },
+                  {
+                    "kind": "derived",
+                    "name": "schedule_4_has_effect_for_claimant"
+                  }
+                ]
+              },
+              {
+                "kind": "derived",
+                "name": "schedule_5_has_effect_for_claimant"
+              }
+            ]
+          },
+          "then_expr": {
+            "kind": "add",
+            "items": [
+              {
+                "kind": "input",
+                "name": "amount_calculated_under_schedule_4"
+              },
+              {
+                "kind": "input",
+                "name": "amount_calculated_under_schedule_5"
+              }
+            ]
+          },
+          "else_expr": {
+            "kind": "literal",
+            "value": {
+              "kind": "decimal",
+              "value": "0"
+            }
+          }
+        }
+      },
+      {
+        "id": "uk:regulations/uksi/2013/376/26#service_charge_payments_amount_calculated_under_schedule_4_for_shared_ownership",
+        "name": "service_charge_payments_amount_calculated_under_schedule_4_for_shared_ownership",
+        "entity": "Person",
+        "dtype": "judgment",
+        "unit": null,
+        "period": "Month",
+        "source": "regulation 26(5)",
+        "source_url": null,
+        "semantics": "judgment",
+        "expr": {
+          "kind": "and",
+          "items": [
+            {
+              "kind": "and",
+              "items": [
+                {
+                  "kind": "and",
+                  "items": [
+                    {
+                      "kind": "derived",
+                      "name": "shared_ownership_tenancy"
+                    },
+                    {
+                      "kind": "derived",
+                      "name": "schedule_4_has_effect_for_claimant"
+                    }
+                  ]
+                },
+                {
+                  "kind": "derived",
+                  "name": "schedule_5_has_effect_for_claimant"
+                }
+              ]
+            },
+            {
+              "kind": "comparison",
+              "left": {
+                "kind": "input",
+                "name": "claimant_is_liable_for_service_charge_payments"
+              },
+              "op": "eq",
+              "right": {
+                "kind": "literal",
+                "value": {
+                  "kind": "bool",
+                  "value": true
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "id": "uk:regulations/uksi/2013/376/27#universal_credit_award_lcwra_element_included_amount",
+        "name": "universal_credit_award_lcwra_element_included_amount",
+        "entity": "Family",
+        "dtype": "decimal",
+        "unit": "GBP",
+        "period": "Month",
+        "source": "Universal Credit Regulations 2013, regulation 27",
+        "source_url": null,
+        "semantics": "scalar",
+        "expr": {
+          "kind": "if",
+          "condition": {
+            "kind": "comparison",
+            "left": {
+              "kind": "input",
+              "name": "claim_is_for_joint_claimants"
+            },
+            "op": "eq",
+            "right": {
+              "kind": "literal",
+              "value": {
+                "kind": "bool",
+                "value": true
+              }
+            }
+          },
+          "then_expr": {
+            "kind": "if",
+            "condition": {
+              "kind": "and",
+              "items": [
+                {
+                  "kind": "comparison",
+                  "left": {
+                    "kind": "input",
+                    "name": "first_joint_claimant_has_limited_capability_for_work_and_work_related_activity"
+                  },
+                  "op": "eq",
+                  "right": {
+                    "kind": "literal",
+                    "value": {
+                      "kind": "bool",
+                      "value": true
+                    }
+                  }
+                },
+                {
+                  "kind": "comparison",
+                  "left": {
+                    "kind": "input",
+                    "name": "second_joint_claimant_has_limited_capability_for_work_and_work_related_activity"
+                  },
+                  "op": "eq",
+                  "right": {
+                    "kind": "literal",
+                    "value": {
+                      "kind": "bool",
+                      "value": true
+                    }
+                  }
+                }
+              ]
+            },
+            "then_expr": {
+              "kind": "max",
+              "items": [
+                {
+                  "kind": "literal",
+                  "value": {
+                    "kind": "decimal",
+                    "value": "0"
+                  }
+                },
+                {
+                  "kind": "max",
+                  "items": [
+                    {
+                      "kind": "input",
+                      "name": "lcwra_element_amount_given_in_regulation_36_for_first_joint_claimant"
+                    },
+                    {
+                      "kind": "input",
+                      "name": "lcwra_element_amount_given_in_regulation_36_for_second_joint_claimant"
+                    }
+                  ]
+                }
+              ]
+            },
+            "else_expr": {
+              "kind": "if",
+              "condition": {
+                "kind": "comparison",
+                "left": {
+                  "kind": "input",
+                  "name": "first_joint_claimant_has_limited_capability_for_work_and_work_related_activity"
+                },
+                "op": "eq",
+                "right": {
+                  "kind": "literal",
+                  "value": {
+                    "kind": "bool",
+                    "value": true
+                  }
+                }
+              },
+              "then_expr": {
+                "kind": "max",
+                "items": [
+                  {
+                    "kind": "literal",
+                    "value": {
+                      "kind": "decimal",
+                      "value": "0"
+                    }
+                  },
+                  {
+                    "kind": "input",
+                    "name": "lcwra_element_amount_given_in_regulation_36_for_first_joint_claimant"
+                  }
+                ]
+              },
+              "else_expr": {
+                "kind": "if",
+                "condition": {
+                  "kind": "comparison",
+                  "left": {
+                    "kind": "input",
+                    "name": "second_joint_claimant_has_limited_capability_for_work_and_work_related_activity"
+                  },
+                  "op": "eq",
+                  "right": {
+                    "kind": "literal",
+                    "value": {
+                      "kind": "bool",
+                      "value": true
+                    }
+                  }
+                },
+                "then_expr": {
+                  "kind": "max",
+                  "items": [
+                    {
+                      "kind": "literal",
+                      "value": {
+                        "kind": "decimal",
+                        "value": "0"
+                      }
+                    },
+                    {
+                      "kind": "input",
+                      "name": "lcwra_element_amount_given_in_regulation_36_for_second_joint_claimant"
+                    }
+                  ]
+                },
+                "else_expr": {
+                  "kind": "literal",
+                  "value": {
+                    "kind": "decimal",
+                    "value": "0"
+                  }
+                }
+              }
+            }
+          },
+          "else_expr": {
+            "kind": "if",
+            "condition": {
+              "kind": "comparison",
+              "left": {
+                "kind": "input",
+                "name": "single_claimant_has_limited_capability_for_work_and_work_related_activity"
+              },
+              "op": "eq",
+              "right": {
+                "kind": "literal",
+                "value": {
+                  "kind": "bool",
+                  "value": true
+                }
+              }
+            },
+            "then_expr": {
+              "kind": "max",
+              "items": [
+                {
+                  "kind": "literal",
+                  "value": {
+                    "kind": "decimal",
+                    "value": "0"
+                  }
+                },
+                {
+                  "kind": "input",
+                  "name": "lcwra_element_amount_given_in_regulation_36_for_single_claimant"
+                }
+              ]
+            },
+            "else_expr": {
+              "kind": "literal",
+              "value": {
+                "kind": "decimal",
+                "value": "0"
+              }
+            }
+          }
+        }
+      },
+      {
+        "id": "uk:regulations/uksi/2013/376/29#claimant_carer_element_included",
+        "name": "claimant_carer_element_included",
+        "entity": "Person",
+        "dtype": "judgment",
+        "unit": null,
+        "period": "Day",
+        "source": "Universal Credit Regulations 2013, regulation 29(1)-(6)",
+        "source_url": null,
+        "semantics": "judgment",
+        "expr": {
+          "kind": "and",
+          "items": [
+            {
+              "kind": "and",
+              "items": [
+                {
+                  "kind": "and",
+                  "items": [
+                    {
+                      "kind": "and",
+                      "items": [
+                        {
+                          "kind": "comparison",
+                          "left": {
+                            "kind": "input",
+                            "name": "claimant_has_regular_and_substantial_caring_responsibilities_for_severely_disabled_person"
+                          },
+                          "op": "eq",
+                          "right": {
+                            "kind": "literal",
+                            "value": {
+                              "kind": "bool",
+                              "value": true
+                            }
+                          }
+                        },
+                        {
+                          "kind": "comparison",
+                          "left": {
+                            "kind": "input",
+                            "name": "claimant_is_the_only_relevant_carer_or_is_elected_or_determined_for_carer_element"
+                          },
+                          "op": "eq",
+                          "right": {
+                            "kind": "literal",
+                            "value": {
+                              "kind": "bool",
+                              "value": true
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "comparison",
+                      "left": {
+                        "kind": "input",
+                        "name": "contributions_and_benefits_act_section_70_does_not_displace_carer_element"
+                      },
+                      "op": "eq",
+                      "right": {
+                        "kind": "literal",
+                        "value": {
+                          "kind": "bool",
+                          "value": true
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "kind": "or",
+                  "items": [
+                    {
+                      "kind": "not",
+                      "item": {
+                        "kind": "comparison",
+                        "left": {
+                          "kind": "input",
+                          "name": "claimant_has_limited_capability_for_work_and_work_related_activity"
+                        },
+                        "op": "eq",
+                        "right": {
+                          "kind": "literal",
+                          "value": {
+                            "kind": "bool",
+                            "value": true
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "kind": "and",
+                      "items": [
+                        {
+                          "kind": "comparison",
+                          "left": {
+                            "kind": "input",
+                            "name": "claim_is_for_joint_claimants"
+                          },
+                          "op": "eq",
+                          "right": {
+                            "kind": "literal",
+                            "value": {
+                              "kind": "bool",
+                              "value": true
+                            }
+                          }
+                        },
+                        {
+                          "kind": "comparison",
+                          "left": {
+                            "kind": "input",
+                            "name": "lcwra_element_included_in_respect_of_other_joint_claimant"
+                          },
+                          "op": "eq",
+                          "right": {
+                            "kind": "literal",
+                            "value": {
+                              "kind": "bool",
+                              "value": true
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "or",
+              "items": [
+                {
+                  "kind": "or",
+                  "items": [
+                    {
+                      "kind": "not",
+                      "item": {
+                        "kind": "comparison",
+                        "left": {
+                          "kind": "input",
+                          "name": "scottish_carer_benefit_coordination_applies_for_same_day_and_same_severely_disabled_person"
+                        },
+                        "op": "eq",
+                        "right": {
+                          "kind": "literal",
+                          "value": {
+                            "kind": "bool",
+                            "value": true
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "kind": "comparison",
+                      "left": {
+                        "kind": "input",
+                        "name": "claimant_and_other_person_jointly_elect_claimant_has_carer_element_and_other_person_has_no_scottish_carer_benefit_entitlement"
+                      },
+                      "op": "eq",
+                      "right": {
+                        "kind": "literal",
+                        "value": {
+                          "kind": "bool",
+                          "value": true
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "kind": "comparison",
+                  "left": {
+                    "kind": "input",
+                    "name": "secretary_of_state_after_consulting_scottish_ministers_is_satisfied_claimant_has_carer_element_and_other_person_has_no_scottish_carer_benefit_entitlement"
+                  },
+                  "op": "eq",
+                  "right": {
+                    "kind": "literal",
+                    "value": {
+                      "kind": "bool",
+                      "value": true
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "uk:regulations/uksi/2013/376/29#both_joint_claimants_carer_elements_included",
+        "name": "both_joint_claimants_carer_elements_included",
+        "entity": "Family",
+        "dtype": "judgment",
+        "unit": null,
+        "period": "Day",
+        "source": "Universal Credit Regulations 2013, regulation 29(2)",
+        "source_url": null,
+        "semantics": "judgment",
+        "expr": {
+          "kind": "and",
+          "items": [
+            {
+              "kind": "and",
+              "items": [
+                {
+                  "kind": "comparison",
+                  "left": {
+                    "kind": "input",
+                    "name": "claim_is_for_joint_claimants"
+                  },
+                  "op": "eq",
+                  "right": {
+                    "kind": "literal",
+                    "value": {
+                      "kind": "bool",
+                      "value": true
+                    }
+                  }
+                },
+                {
+                  "kind": "comparison",
+                  "left": {
+                    "kind": "input",
+                    "name": "both_joint_claimants_qualify_for_carer_element"
+                  },
+                  "op": "eq",
+                  "right": {
+                    "kind": "literal",
+                    "value": {
+                      "kind": "bool",
+                      "value": true
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "not",
+              "item": {
+                "kind": "comparison",
+                "left": {
+                  "kind": "input",
+                  "name": "joint_claimants_are_caring_for_the_same_severely_disabled_person"
+                },
+                "op": "eq",
+                "right": {
+                  "kind": "literal",
+                  "value": {
+                    "kind": "bool",
+                    "value": true
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "id": "uk:regulations/uksi/2013/376/34#other_relevant_support_amount_left_out_of_account",
+        "name": "other_relevant_support_amount_left_out_of_account",
+        "entity": "Family",
+        "dtype": "decimal",
+        "unit": "GBP",
+        "period": "Month",
+        "source": "Universal Credit Regulations 2013, regulation 34(2)(b) and 34(3)",
+        "source_url": null,
+        "semantics": "scalar",
+        "expr": {
+          "kind": "if",
+          "condition": {
+            "kind": "comparison",
+            "left": {
+              "kind": "input",
+              "name": "secretary_of_state_work_transition_childcare_payment_meets_non_other_relevant_support_conditions"
+            },
+            "op": "eq",
+            "right": {
+              "kind": "literal",
+              "value": {
+                "kind": "bool",
+                "value": true
+              }
+            }
+          },
+          "then_expr": {
+            "kind": "max",
+            "items": [
+              {
+                "kind": "literal",
+                "value": {
+                  "kind": "decimal",
+                  "value": "0"
+                }
+              },
+              {
+                "kind": "sub",
+                "left": {
+                  "kind": "input",
+                  "name": "amount_from_funds_provided_by_secretary_of_state_or_scottish_or_welsh_ministers_for_work_related_activity_or_training"
+                },
+                "right": {
+                  "kind": "input",
+                  "name": "secretary_of_state_work_transition_childcare_payment_amount"
+                }
+              }
+            ]
+          },
+          "else_expr": {
+            "kind": "input",
+            "name": "amount_from_funds_provided_by_secretary_of_state_or_scottish_or_welsh_ministers_for_work_related_activity_or_training"
+          }
+        }
+      },
+      {
+        "id": "uk:regulations/uksi/2013/376/34#relevant_childcare_charges_taken_into_account",
+        "name": "relevant_childcare_charges_taken_into_account",
+        "entity": "Family",
+        "dtype": "decimal",
+        "unit": "GBP",
+        "period": "Month",
+        "source": "Universal Credit Regulations 2013, regulation 34(2)",
+        "source_url": null,
+        "semantics": "scalar",
+        "expr": {
+          "kind": "max",
+          "items": [
+            {
+              "kind": "literal",
+              "value": {
+                "kind": "decimal",
+                "value": "0"
+              }
+            },
+            {
+              "kind": "sub",
+              "left": {
+                "kind": "sub",
+                "left": {
+                  "kind": "sub",
+                  "left": {
+                    "kind": "input",
+                    "name": "charges_paid_for_relevant_childcare_attributable_to_assessment_period"
+                  },
+                  "right": {
+                    "kind": "input",
+                    "name": "amount_considered_excessive_having_regard_to_paid_work_extent"
+                  }
+                },
+                "right": {
+                  "kind": "input",
+                  "name": "amount_met_or_reimbursed_by_employer_or_some_other_person"
+                }
+              },
+              "right": {
+                "kind": "derived",
+                "name": "other_relevant_support_amount_left_out_of_account"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "id": "uk:regulations/uksi/2013/376/34#childcare_costs_element_percentage_amount",
+        "name": "childcare_costs_element_percentage_amount",
+        "entity": "Family",
+        "dtype": "decimal",
+        "unit": "GBP",
+        "period": "Month",
+        "source": "Universal Credit Regulations 2013, regulation 34(1)(a)",
+        "source_url": null,
+        "semantics": "scalar",
+        "expr": {
+          "kind": "mul",
+          "left": {
+            "kind": "parameter_lookup",
+            "parameter": "childcare_costs_reimbursement_rate",
+            "index": {
+              "kind": "literal",
+              "value": {
+                "kind": "integer",
+                "value": 0
+              }
+            }
+          },
+          "right": {
+            "kind": "derived",
+            "name": "relevant_childcare_charges_taken_into_account"
+          }
+        }
+      },
+      {
+        "id": "uk:regulations/uksi/2013/376/34#childcare_costs_element_amount",
+        "name": "childcare_costs_element_amount",
+        "entity": "Family",
+        "dtype": "decimal",
+        "unit": "GBP",
+        "period": "Month",
+        "source": "Universal Credit Regulations 2013, regulation 34(1)",
+        "source_url": null,
+        "semantics": "scalar",
+        "expr": {
+          "kind": "min",
+          "items": [
+            {
+              "kind": "derived",
+              "name": "childcare_costs_element_percentage_amount"
+            },
+            {
+              "kind": "max",
+              "items": [
+                {
+                  "kind": "literal",
+                  "value": {
+                    "kind": "decimal",
+                    "value": "0"
+                  }
+                },
+                {
+                  "kind": "input",
+                  "name": "maximum_amount_specified_in_table_in_regulation_36"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "name": "amount_included_under_section_9_standard_allowance",
+        "entity": "Family",
+        "dtype": "decimal",
+        "unit": "GBP",
+        "period": "Month",
+        "source": "axiom-programs/uk/universal-credit bridge from WRA 2012 s.9 to UC Regs 2013 reg. 36",
+        "source_url": null,
+        "semantics": "scalar",
+        "expr": {
+          "kind": "derived",
+          "name": "standard_allowance_amount"
+        }
+      },
+      {
+        "name": "amount_included_under_section_10_responsibility_for_children_and_young_persons",
+        "entity": "Family",
+        "dtype": "decimal",
+        "unit": "GBP",
+        "period": "Month",
+        "source": "axiom-programs/uk/universal-credit bridge from WRA 2012 s.10 to UC Regs 2013 regs. 24 and 36",
+        "source_url": null,
+        "semantics": "scalar",
+        "expr": {
+          "kind": "add",
+          "items": [
+            {
+              "kind": "sum_related",
+              "relation": "child_of_benefit_unit",
+              "current_slot": 1,
+              "related_slot": 0,
+              "value": {
+                "kind": "input",
+                "name": "responsible_child_element_included_amount"
+              },
+              "where": null
+            },
+            {
+              "kind": "sum_related",
+              "relation": "child_of_benefit_unit",
+              "current_slot": 1,
+              "related_slot": 0,
+              "value": {
+                "kind": "input",
+                "name": "disabled_child_additional_amount"
+              },
+              "where": null
+            }
+          ]
+        }
+      },
+      {
+        "name": "amount_included_under_section_11_housing_costs",
+        "entity": "Family",
+        "dtype": "decimal",
+        "unit": "GBP",
+        "period": "Month",
+        "source": "axiom-programs/uk/universal-credit bridge from WRA 2012 s.11 to UC Regs 2013 reg. 26",
+        "source_url": null,
+        "semantics": "scalar",
+        "expr": {
+          "kind": "sum_related",
+          "relation": "adult_of_benefit_unit",
+          "current_slot": 1,
+          "related_slot": 0,
+          "value": {
+            "kind": "input",
+            "name": "housing_cost_element_under_shared_ownership"
+          },
+          "where": null
+        }
+      },
+      {
+        "name": "universal_credit_award_carer_element_included_amount",
+        "entity": "Family",
+        "dtype": "decimal",
+        "unit": "GBP",
+        "period": "Month",
+        "source": "axiom-programs/uk/universal-credit bridge from UC Regs 2013 regs. 29 and 36",
+        "source_url": null,
+        "semantics": "scalar",
+        "expr": {
+          "kind": "if",
+          "condition": {
+            "kind": "derived",
+            "name": "both_joint_claimants_carer_elements_included"
+          },
+          "then_expr": {
+            "kind": "mul",
+            "left": {
+              "kind": "literal",
+              "value": {
+                "kind": "decimal",
+                "value": "2"
+              }
+            },
+            "right": {
+              "kind": "parameter_lookup",
+              "parameter": "carer_element_amount",
+              "index": {
+                "kind": "literal",
+                "value": {
+                  "kind": "integer",
+                  "value": 0
+                }
+              }
+            }
+          },
+          "else_expr": {
+            "kind": "sum_related",
+            "relation": "adult_of_benefit_unit",
+            "current_slot": 1,
+            "related_slot": 0,
+            "value": {
+              "kind": "input",
+              "name": "carer_element_amount"
+            },
+            "where": {
+              "kind": "derived",
+              "name": "claimant_carer_element_included"
+            }
+          }
+        }
+      },
+      {
+        "name": "amount_included_under_section_12_other_particular_needs_or_circumstances",
+        "entity": "Family",
+        "dtype": "decimal",
+        "unit": "GBP",
+        "period": "Month",
+        "source": "axiom-programs/uk/universal-credit bridge from WRA 2012 s.12 to UC Regs 2013 regs. 27, 29, and 34",
+        "source_url": null,
+        "semantics": "scalar",
+        "expr": {
+          "kind": "add",
+          "items": [
+            {
+              "kind": "add",
+              "items": [
+                {
+                  "kind": "derived",
+                  "name": "universal_credit_award_lcwra_element_included_amount"
+                },
+                {
+                  "kind": "derived",
+                  "name": "universal_credit_award_carer_element_included_amount"
+                }
+              ]
+            },
+            {
+              "kind": "derived",
+              "name": "childcare_costs_element_amount"
+            }
+          ]
+        }
+      },
+      {
+        "name": "earned_income_deduction_calculated_in_prescribed_manner",
+        "entity": "Family",
+        "dtype": "decimal",
+        "unit": "GBP",
+        "period": "Month",
+        "source": "axiom-programs/uk/universal-credit bridge from WRA 2012 s.8 to UC Regs 2013 reg. 22",
+        "source_url": null,
+        "semantics": "scalar",
+        "expr": {
+          "kind": "derived",
+          "name": "earned_income_deduction_from_maximum_amount"
+        }
+      },
+      {
+        "name": "unearned_income_deduction_calculated_in_prescribed_manner",
+        "entity": "Family",
+        "dtype": "decimal",
+        "unit": "GBP",
+        "period": "Month",
+        "source": "axiom-programs/uk/universal-credit bridge from WRA 2012 s.8 to UC Regs 2013 reg. 22",
+        "source_url": null,
+        "semantics": "scalar",
+        "expr": {
+          "kind": "max",
+          "items": [
+            {
+              "kind": "literal",
+              "value": {
+                "kind": "decimal",
+                "value": "0"
+              }
+            },
+            {
+              "kind": "derived",
+              "name": "unearned_income_for_deduction"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "metadata": {
+    "evaluation_order": [
+      "amount_included_under_section_10_responsibility_for_children_and_young_persons",
+      "amount_included_under_section_11_housing_costs",
+      "both_joint_claimants_carer_elements_included",
+      "carer_element",
+      "child_element_amount",
+      "childcare_costs_element_maximum_amount",
+      "claimant_carer_element_included",
+      "disabled_child_additional_amount",
+      "effective_joint_claimants_for_deduction",
+      "earned_income_for_deduction",
+      "higher_rate_disabled_child_addition_applies",
+      "lcwra_element_amount",
+      "lower_rate_disabled_child_addition_applies",
+      "other_relevant_support_amount_left_out_of_account",
+      "relevant_childcare_charges_taken_into_account",
+      "childcare_costs_element_percentage_amount",
+      "childcare_costs_element_amount",
+      "responsible_child_element_included_amount",
+      "schedule_4_has_effect_for_claimant",
+      "schedule_5_has_effect_for_claimant",
+      "shared_ownership_tenancy",
+      "housing_cost_element_under_shared_ownership",
+      "service_charge_payments_amount_calculated_under_schedule_4_for_shared_ownership",
+      "standard_allowance_amount",
+      "amount_included_under_section_9_standard_allowance",
+      "unearned_income_for_deduction",
+      "unearned_income_deduction_calculated_in_prescribed_manner",
+      "universal_credit_award_carer_element_included_amount",
+      "universal_credit_award_lcwra_element_included_amount",
+      "amount_included_under_section_12_other_particular_needs_or_circumstances",
+      "universal_credit_maximum_amount",
+      "work_allowance_specified_for_deduction",
+      "applicable_work_allowance_amount",
+      "earned_income_amount_subject_to_taper",
+      "earned_income_deduction_from_maximum_amount",
+      "earned_income_deduction_calculated_in_prescribed_manner",
+      "universal_credit_amounts_to_be_deducted",
+      "universal_credit_award_amount",
+      "universal_credit_award_deduction_from_maximum_amount"
+    ],
+    "fast_path": {
+      "strategy": "generic_bulk",
+      "compatible": true,
+      "blockers": []
+    }
+  }
+}

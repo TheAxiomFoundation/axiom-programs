@@ -1,0 +1,46 @@
+{
+  "program": "uk/universal-credit",
+  "period": "2026-04",
+  "outputs": [
+    "universal_credit_award_amount",
+    "universal_credit_maximum_amount",
+    "standard_allowance_amount",
+    "amount_included_under_section_10_responsibility_for_children_and_young_persons",
+    "amount_included_under_section_11_housing_costs",
+    "amount_included_under_section_12_other_particular_needs_or_circumstances",
+    "universal_credit_award_deduction_from_maximum_amount",
+    "child_element_amount",
+    "disabled_child_additional_amount",
+    "childcare_costs_element_amount",
+    "lcwra_element_amount",
+    "carer_element",
+    "childcare_costs_element_maximum_amount"
+  ],
+  "source_program_spec": "uk/universal-credit/fy-2026-27.yaml",
+  "composed_rulespec": "artifacts/uk/universal-credit/fy-2026-27.rulespec.yaml",
+  "compiled_artifact": "artifacts/uk/universal-credit/fy-2026-27.compiled.json",
+  "artifact_counts": {
+    "derived": 39,
+    "parameters": 19,
+    "relations": 2
+  },
+  "tooling": {
+    "axiom_programs_commit": "d8611ab1bec62207dec76a088763626998d99304",
+    "axiom_compose_commit": "fabe0b3b3fd6e90d3e8f075516f9b668f524f711",
+    "rulespec_uk_official_commit": "7667937db674b5894516dac9afb1b0ec7997d3fe",
+    "axiom_rules_engine_commit": "8ad01030cc819e20fec9b4f1a85bb82ddd70810e"
+  },
+  "sha256": {
+    "fy-2026-27.rulespec.yaml": "870bf0a3982c2f72d7ca7e984943bc3d8583d032f9b7279b78c9badf440f8db2",
+    "fy-2026-27.compiled.json": "a6c49b6ada66f581fe99044a2a72cee64782016780ee87f22fcb9763829d9eb7"
+  },
+  "commands": {
+    "compose": "axiom-compose uk/universal-credit/fy-2026-27.yaml --rulespec-root /path/to/rulespec-uk-official -o artifacts/uk/universal-credit/fy-2026-27.rulespec.yaml",
+    "compile": "AXIOM_RULESPEC_REPO_ROOTS=/path/to/workspace:/path/to/rulespec-uk-official axiom-rules-engine compile --program artifacts/uk/universal-credit/fy-2026-27.rulespec.yaml --output artifacts/uk/universal-credit/fy-2026-27.compiled.json"
+  },
+  "notes": [
+    "The source program spec is not directly executable by axiom-rules-engine.",
+    "Deployments that do not have access to private axiom-compose can use the composed RuleSpec or compiled JSON artifact directly.",
+    "The final universal_credit_award_amount is executable, but downstream applications must provide the required runtime facts and relations for their use case."
+  ]
+}
