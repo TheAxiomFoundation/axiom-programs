@@ -20,23 +20,23 @@
   "composed_rulespec": "artifacts/uk/universal-credit/fy-2026-27.rulespec.yaml",
   "compiled_artifact": "artifacts/uk/universal-credit/fy-2026-27.compiled.json",
   "artifact_counts": {
-    "derived": 39,
-    "parameters": 19,
-    "relations": 2
+    "derived": 51,
+    "parameters": 25,
+    "relations": 3
   },
   "tooling": {
-    "axiom_programs_commit": "d8611ab1bec62207dec76a088763626998d99304",
+    "axiom_programs_commit": "d3e4353ad1d20b53f0d94a7c122770d3db04a28a",
     "axiom_compose_commit": "fabe0b3b3fd6e90d3e8f075516f9b668f524f711",
-    "rulespec_uk_official_commit": "7667937db674b5894516dac9afb1b0ec7997d3fe",
+    "rulespec_uk_official_commit": "3436df644c912fa5f1cac9cdf4414427fca2b93d",
     "axiom_rules_engine_commit": "8ad01030cc819e20fec9b4f1a85bb82ddd70810e"
   },
   "sha256": {
-    "fy-2026-27.rulespec.yaml": "870bf0a3982c2f72d7ca7e984943bc3d8583d032f9b7279b78c9badf440f8db2",
-    "fy-2026-27.compiled.json": "a6c49b6ada66f581fe99044a2a72cee64782016780ee87f22fcb9763829d9eb7"
+    "fy-2026-27.rulespec.yaml": "e336b8c05af762632fee814d16894a852007909697a106e12449f21c18b9a347",
+    "fy-2026-27.compiled.json": "cba76a62cc09bc64bb03cd5c371a59612eb77abb7d99a72f345bbfdc801ae617"
   },
   "commands": {
-    "compose": "axiom-compose uk/universal-credit/fy-2026-27.yaml --rulespec-root /path/to/rulespec-uk-official -o artifacts/uk/universal-credit/fy-2026-27.rulespec.yaml",
-    "compile": "AXIOM_RULESPEC_REPO_ROOTS=/path/to/workspace:/path/to/rulespec-uk-official axiom-rules-engine compile --program artifacts/uk/universal-credit/fy-2026-27.rulespec.yaml --output artifacts/uk/universal-credit/fy-2026-27.compiled.json"
+    "compose": "axiom-compose uk/universal-credit/fy-2026-27.yaml --rulespec-root /path/to/rulespec-uk -o artifacts/uk/universal-credit/fy-2026-27.rulespec.yaml",
+    "compile": "AXIOM_RULESPEC_REPO_ROOTS=/path/to/workspace axiom-rules-engine compile --program artifacts/uk/universal-credit/fy-2026-27.rulespec.yaml --output artifacts/uk/universal-credit/fy-2026-27.compiled.json"
   },
   "notes": [
     "The source program spec is not directly executable by axiom-rules-engine.",

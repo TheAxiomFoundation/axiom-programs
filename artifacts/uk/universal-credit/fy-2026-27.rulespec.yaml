@@ -6,11 +6,16 @@ imports:
 - uk:statutes/ukpga/2012/5/8
 - uk:regulations/uksi/2013/376/22
 - uk:regulations/uksi/2013/376/24
+- uk:regulations/uksi/2013/376/36#child_element_amount
 - uk:regulations/uksi/2013/376/26
 - uk:regulations/uksi/2013/376/27
 - uk:regulations/uksi/2013/376/29
 - uk:regulations/uksi/2013/376/34
 - uk:regulations/uksi/2013/376/36
+- uk:regulations/uksi/2013/376/schedule/4/paragraph/22
+- uk:regulations/uksi/2013/376/schedule/4/paragraph/14#total_housing_cost_contributions_to_be_deducted_in_renters_case
+- uk:regulations/uksi/2013/376/schedule/5/paragraph/9
+- uk:regulations/uksi/2013/376/schedule/5/paragraph/13#owner_occupier_service_charge_payments_amount
 rules:
 - name: adult_of_benefit_unit
   kind: data_relation
@@ -44,6 +49,26 @@ rules:
 
       + sum(child_of_benefit_unit.disabled_child_additional_amount)'
   unit: GBP
+- name: amount_calculated_under_schedule_4
+  kind: derived
+  entity: Family
+  dtype: Money
+  period: Month
+  source: axiom-programs/uk/universal-credit bridge from UC Regs 2013 reg. 26 to Schedule 4 paragraph 22
+  versions:
+  - effective_from: '2026-04-01'
+    formula: renters_housing_costs_element_calculated_under_this_part
+  unit: GBP
+- name: amount_calculated_under_schedule_5
+  kind: derived
+  entity: Family
+  dtype: Money
+  period: Month
+  source: axiom-programs/uk/universal-credit bridge from UC Regs 2013 reg. 26 to Schedule 5 paragraph 9
+  versions:
+  - effective_from: '2026-04-01'
+    formula: owner_occupier_housing_costs_element_amount
+  unit: GBP
 - name: amount_included_under_section_11_housing_costs
   kind: derived
   entity: Family
@@ -52,7 +77,9 @@ rules:
   source: axiom-programs/uk/universal-credit bridge from WRA 2012 s.11 to UC Regs 2013 reg. 26
   versions:
   - effective_from: '2026-04-01'
-    formula: sum(adult_of_benefit_unit.housing_cost_element_under_shared_ownership)
+    formula: 'amount_calculated_under_schedule_4
+
+      + amount_calculated_under_schedule_5'
   unit: GBP
 - name: universal_credit_award_carer_element_included_amount
   kind: derived
