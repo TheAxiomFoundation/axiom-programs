@@ -1,21 +1,132 @@
 # UK Universal Credit -- 2026-27
 #
-# First-pass program package for Universal Credit Regulation 36 component
-# amounts. This is not the full Universal Credit award calculation; full award
-# composition still needs income, capital, housing-cost, conditionality,
-# sanction, and deduction surfaces.
+# Program package for the currently executable Universal Credit award surface.
+# The final award output is assembled from encoded WRA 2012 section 8 and
+# Universal Credit Regulations 2013 component, housing, childcare, and income-
+# deduction provisions. Some upstream source areas remain modeled as direct
+# runtime facts where RuleSpec has not yet encoded the full lower-level
+# administrative path, such as non-shared-ownership housing schedules,
+# sanctions, and detailed capital/resource entitlement gates.
 
 program: uk/universal-credit
 period: 2026-04
 
 outputs:
+  - universal_credit_award_amount
+  - universal_credit_maximum_amount
   - standard_allowance_amount
+  - amount_included_under_section_10_responsibility_for_children_and_young_persons
+  - amount_included_under_section_11_housing_costs
+  - amount_included_under_section_12_other_particular_needs_or_circumstances
+  - universal_credit_award_deduction_from_maximum_amount
   - child_element_amount
   - disabled_child_additional_amount
+  - childcare_costs_element_amount
   - lcwra_element_amount
   - carer_element
   - childcare_costs_element_maximum_amount
 
 scope:
   uk:
+    - statutes/ukpga/2012/5/8
+    - regulations/uksi/2013/376/22
+    - regulations/uksi/2013/376/24
+    - regulations/uksi/2013/376/26
+    - regulations/uksi/2013/376/27
+    - regulations/uksi/2013/376/29
+    - regulations/uksi/2013/376/34
     - regulations/uksi/2013/376/36
+
+transformations:
+  - pattern: data_relation
+    name: adult_of_benefit_unit
+    arity: 2
+    source: axiom-programs/uk/universal-credit runtime adult membership
+
+  - pattern: data_relation
+    name: child_of_benefit_unit
+    arity: 2
+    source: axiom-programs/uk/universal-credit runtime child membership
+
+  - pattern: derived_formula
+    name: amount_included_under_section_9_standard_allowance
+    effective_from: '2026-04-01'
+    entity: Family
+    dtype: Money
+    period: Month
+    unit: GBP
+    source: axiom-programs/uk/universal-credit bridge from WRA 2012 s.9 to UC Regs 2013 reg. 36
+    formula: |-
+      standard_allowance_amount
+
+  - pattern: derived_formula
+    name: amount_included_under_section_10_responsibility_for_children_and_young_persons
+    effective_from: '2026-04-01'
+    entity: Family
+    dtype: Money
+    period: Month
+    unit: GBP
+    source: axiom-programs/uk/universal-credit bridge from WRA 2012 s.10 to UC Regs 2013 regs. 24 and 36
+    formula: |-
+      sum(child_of_benefit_unit.responsible_child_element_included_amount)
+      + sum(child_of_benefit_unit.disabled_child_additional_amount)
+
+  - pattern: derived_formula
+    name: amount_included_under_section_11_housing_costs
+    effective_from: '2026-04-01'
+    entity: Family
+    dtype: Money
+    period: Month
+    unit: GBP
+    source: axiom-programs/uk/universal-credit bridge from WRA 2012 s.11 to UC Regs 2013 reg. 26
+    formula: |-
+      sum(adult_of_benefit_unit.housing_cost_element_under_shared_ownership)
+
+  - pattern: derived_formula
+    name: universal_credit_award_carer_element_included_amount
+    effective_from: '2026-04-01'
+    entity: Family
+    dtype: Money
+    period: Month
+    unit: GBP
+    source: axiom-programs/uk/universal-credit bridge from UC Regs 2013 regs. 29 and 36
+    formula: |-
+      if both_joint_claimants_carer_elements_included:
+        2 * carer_element_amount
+      else:
+        sum_where(adult_of_benefit_unit, carer_element_amount, claimant_carer_element_included)
+
+  - pattern: derived_formula
+    name: amount_included_under_section_12_other_particular_needs_or_circumstances
+    effective_from: '2026-04-01'
+    entity: Family
+    dtype: Money
+    period: Month
+    unit: GBP
+    source: axiom-programs/uk/universal-credit bridge from WRA 2012 s.12 to UC Regs 2013 regs. 27, 29, and 34
+    formula: |-
+      universal_credit_award_lcwra_element_included_amount
+      + universal_credit_award_carer_element_included_amount
+      + childcare_costs_element_amount
+
+  - pattern: derived_formula
+    name: earned_income_deduction_calculated_in_prescribed_manner
+    effective_from: '2026-04-01'
+    entity: Family
+    dtype: Money
+    period: Month
+    unit: GBP
+    source: axiom-programs/uk/universal-credit bridge from WRA 2012 s.8 to UC Regs 2013 reg. 22
+    formula: |-
+      earned_income_deduction_from_maximum_amount
+
+  - pattern: derived_formula
+    name: unearned_income_deduction_calculated_in_prescribed_manner
+    effective_from: '2026-04-01'
+    entity: Family
+    dtype: Money
+    period: Month
+    unit: GBP
+    source: axiom-programs/uk/universal-credit bridge from WRA 2012 s.8 to UC Regs 2013 reg. 22
+    formula: |-
+      max(0, unearned_income_for_deduction)
