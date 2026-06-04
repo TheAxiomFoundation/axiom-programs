@@ -16,6 +16,11 @@ The split:
 | Microsimulation runtime (executes compiled artifacts over a population) | `axiom-microsim` |
 | Oracle comparison harness | `axiom-oracles` |
 
+Deployment note: YAML files under `uk/`, `us-*`, and `us/` are compose
+specs, not direct `axiom-rules-engine` inputs. Deployments that do not have
+`axiom-compose` available should consume a precomposed RuleSpec file or a
+precompiled engine artifact from `artifacts/`.
+
 ## Layout
 
 One YAML file per (jurisdiction, program, period). Subdirectories scope by jurisdiction:
@@ -51,6 +56,12 @@ axiom-programs/
   uk/
     universal-credit/
       fy-2026-27.yaml
+  artifacts/
+    uk/
+      universal-credit/
+        fy-2026-27.rulespec.yaml
+        fy-2026-27.compiled.json
+        fy-2026-27.manifest.json
 ```
 
 Naming: the file path mirrors the program identifier (`us-co/snap` → `us-co/snap/fy-2026.yaml`).
@@ -83,6 +94,22 @@ scope:
 - **Specs are not the composer.** They belong outside `axiom-compose`, which is the tool.
 - **Specs need their own release cycle.** A new fiscal year spec or a new jurisdiction shouldn't require a composer release.
 - **The repo isn't US-specific.** UK and Canada programs land here too as those rulespec repos mature.
+
+## Deployment artifacts
+
+`artifacts/` contains generated outputs for deployment environments that should
+not depend on private composer access at runtime:
+
+- `*.rulespec.yaml` is the composed `format: rulespec/v1` file accepted by
+  `axiom-rules-engine compile`.
+- `*.compiled.json` is the compiled engine artifact accepted by
+  `axiom-rules-engine run-compiled`.
+- `*.manifest.json` records the source spec, tool commits, hashes, and
+  regeneration commands.
+
+For UK Universal Credit, deployments can use
+`artifacts/uk/universal-credit/fy-2026-27.compiled.json` directly. The source
+spec remains `uk/universal-credit/fy-2026-27.yaml`.
 
 ## Status
 
