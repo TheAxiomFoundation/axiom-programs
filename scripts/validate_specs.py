@@ -73,6 +73,7 @@ def main() -> int:
         path
         for path in repo_root.glob("*/*/*.yaml")
         if path.parts[len(repo_root.parts)] != "artifacts"
+        and not path.parts[len(repo_root.parts)].startswith(("_", "."))
     )
     if not spec_paths:
         print("error: no specs found", file=sys.stderr)
