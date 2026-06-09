@@ -1,0 +1,26 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  validate-specs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6.0.2
+      - name: Clone referenced rulespec repos
+        run: |
+          prefixes="us $(ls -d */ | sed 's#/##' | grep -v -e '^artifacts$' -e '^scripts$' -e '^_rulespec$')"
+          mkdir -p _rulespec
+          for p in $(echo "$prefixes" | tr ' ' '\n' | sort -u); do
+            git clone --depth 1 "https://github.com/TheAxiomFoundation/rulespec-$p" "_rulespec/rulespec-$p"
+          done
+      - uses: astral-sh/setup-uv@v8.1.0
+      - run: uv python install 3.14
+      - name: Validate specs
+        run: >
+          uv run --python 3.14 --with pyyaml
+          --with git+https://github.com/TheAxiomFoundation/axiom-compose
+          python scripts/validate_specs.py --rulespec-root _rulespec

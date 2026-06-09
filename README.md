@@ -121,6 +121,15 @@ spec composes the employee Social Security tax rule from `rulespec-us`. Some
 state specs still carry known policy coverage gaps, but they are executable
 program assemblies, not placeholders.
 
+## CI
+
+`scripts/validate_specs.py` runs on every push and PR: each spec must parse
+through `axiom-compose`'s loader, and every `scope:` entry must resolve to a
+module file in its rulespec repo (CI clones them fresh). Known gaps live in
+`known-dangling.yaml` with an issue link; the check fails on new dangling
+entries and on allowlisted entries that start resolving, so the list only
+ratchets down.
+
 ## Migration backlog
 
 Existing composition that needs to move *into* this repo:
