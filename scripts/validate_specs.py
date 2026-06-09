@@ -3,9 +3,13 @@
 
 Two checks:
 
-1. **Schema** — each spec parses through axiom-compose's ``load_spec``, the
-   same loader composition uses, so a spec that breaks here would break
-   composition.
+1. **Structure** — each spec is well-formed YAML with the required shape:
+   ``program`` (string), ``period``, non-empty ``outputs`` (list of
+   strings), and ``scope`` as a mapping of scope name → list of paths when
+   present. Deep schema validation through axiom-compose's own loader runs
+   in axiom-compose's CI, which composes real specs from this repo;
+   axiom-compose is a private repo, so this script stays dependency-free
+   and runnable anywhere.
 2. **Scope existence** — every ``scope:`` entry must resolve to a module file
    in the corresponding rulespec checkout. A dangling entry composes into a
    program the engine cannot compile (see axiom-programs#14).
@@ -32,7 +36,36 @@ from pathlib import Path
 
 import yaml
 
-from axiom_compose import load_spec
+
+def structural_errors(rel: str, raw: object) -> list[str]:
+    """Required-shape checks shared by every spec."""
+    if not isinstance(raw, dict):
+        return [f"{rel}: spec root must be a mapping"]
+    errors = []
+    if not isinstance(raw.get("program"), str) or not raw.get("program"):
+        errors.append(f"{rel}: missing or non-string `program`")
+    if "period" not in raw:
+        errors.append(f"{rel}: missing `period`")
+    outputs = raw.get("outputs")
+    if (
+        not isinstance(outputs, list)
+        or not outputs
+        or not all(isinstance(item, str) for item in outputs)
+    ):
+        errors.append(f"{rel}: `outputs` must be a non-empty list of strings")
+    scope = raw.get("scope")
+    if scope is not None:
+        if not isinstance(scope, dict):
+            errors.append(f"{rel}: `scope` must be a mapping")
+        else:
+            for name, paths in scope.items():
+                if not isinstance(paths, list) or not all(
+                    isinstance(item, str) for item in paths
+                ):
+                    errors.append(
+                        f"{rel}: scope `{name}` must be a list of path strings"
+                    )
+    return errors
 
 
 def scope_prefix(program: str, scope_name: str) -> str:
@@ -87,14 +120,17 @@ def main() -> int:
     for spec_path in spec_paths:
         rel = str(spec_path.relative_to(repo_root))
         try:
-            spec = load_spec(spec_path)
-        except Exception as exc:  # noqa: BLE001 - report any parse failure
-            errors.append(f"{rel}: does not parse as a program spec: {exc}")
+            raw = yaml.safe_load(spec_path.read_text()) or {}
+        except yaml.YAMLError as exc:
+            errors.append(f"{rel}: invalid YAML: {exc}")
+            continue
+        shape_errors = structural_errors(rel, raw)
+        if shape_errors:
+            errors.extend(shape_errors)
             continue
 
-        raw = yaml.safe_load(spec_path.read_text()) or {}
         for scope_name, paths in (raw.get("scope") or {}).items():
-            prefix = scope_prefix(spec.program, scope_name)
+            prefix = scope_prefix(raw["program"], scope_name)
             repo_dir = rulespec_root / f"rulespec-{prefix}"
             if not repo_dir.exists():
                 errors.append(
